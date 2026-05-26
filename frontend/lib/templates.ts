@@ -1,8 +1,8 @@
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
-import type { SlideComponent, SlideComponents } from "@/types/component";
+import type { SlideComponent } from "@/types/component";
 import type { Position, Size, SlideElement } from "@/types/elements";
-import type { SlideLayout, SlideLayouts } from "@/types/layout";
+import type { SlideLayout } from "@/types/layout";
 
 const TEMPLATES_DIR = path.join(process.cwd(), "app", "templates");
 const IMAGE_MIME_TYPES: Record<string, string> = {
@@ -115,7 +115,7 @@ function getLayouts(value: unknown): SlideLayout[] {
   }
 
   if (isRecord(value) && Array.isArray(value.layouts)) {
-    return (value as SlideLayouts).layouts;
+    return value.layouts as SlideLayout[];
   }
 
   return [];
@@ -127,7 +127,7 @@ function getComponents(value: unknown): SlideComponent[] {
   }
 
   if (isRecord(value) && Array.isArray(value.components)) {
-    return (value as SlideComponents).components;
+    return value.components as SlideComponent[];
   }
 
   return [];

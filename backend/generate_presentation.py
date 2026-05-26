@@ -83,13 +83,12 @@ ELEMENT_TYPES = {
     "grid-view",
     "image",
     "line",
-    "list",
     "list-view",
     "rectangle",
-    "rich-text",
     "stack",
     "table",
     "text",
+    "text-list",
 }
 
 
@@ -323,7 +322,7 @@ def _apply_element_value_from_schema(
 ) -> None:
     element_type = element.get("type")
 
-    if element_type in {"text", "rich-text"}:
+    if element_type == "text":
         _set_text_value(element, value)
         return
 
@@ -331,8 +330,8 @@ def _apply_element_value_from_schema(
         _set_image_value(element, value)
         return
 
-    if element_type == "list":
-        _set_list_items(element, value)
+    if element_type == "text-list":
+        _set_text_list_items(element, value)
         return
 
     if element_type == "table":
@@ -377,18 +376,15 @@ def _apply_children_value_from_schema(
 
 def _set_text_value(element: dict[str, Any], value: Any) -> None:
     text = _text_from_generated_value(value)
+    element.pop("text", None)
 
-    if element.get("type") == "rich-text":
-        first_run = (element.get("runs") or [{}])[0]
-        run: dict[str, Any] = {"text": text}
-        if isinstance(first_run, dict) and first_run.get("font") is not None:
-            run["font"] = first_run["font"]
-        elif element.get("font") is not None:
-            run["font"] = element["font"]
-        element["runs"] = [run]
-        return
-
-    element["text"] = text
+    first_run = (element.get("runs") or [{}])[0]
+    run: dict[str, Any] = {"text": text}
+    if isinstance(first_run, dict) and first_run.get("font") is not None:
+        run["font"] = first_run["font"]
+    elif element.get("font") is not None:
+        run["font"] = element["font"]
+    element["runs"] = [run]
 
 
 def _set_image_value(element: dict[str, Any], value: Any) -> None:
@@ -414,8 +410,8 @@ def _set_items_value(
 ) -> None:
     element_type = element.get("type")
 
-    if element_type == "list":
-        _set_list_items(element, value)
+    if element_type == "text-list":
+        _set_text_list_items(element, value)
         return
 
     if element_type in {"list-view", "grid-view"}:
@@ -425,16 +421,13 @@ def _set_items_value(
     _apply_element_value_from_schema(element, value, schema)
 
 
-def _set_list_items(element: dict[str, Any], value: Any) -> None:
+def _set_text_list_items(element: dict[str, Any], value: Any) -> None:
     if not isinstance(value, list):
-        raise ValueError("list content must be an array")
+        raise ValueError("text-list content must be an array")
 
     items: list[dict[str, Any]] = []
     for item in value:
-        if isinstance(item, dict) and item.get("type") in {"text", "rich-text"}:
-            items.append(item)
-        else:
-            items.append({"type": "text", "text": _text_from_generated_value(item)})
+        items.append({"type": "text", "text": _text_from_generated_value(item)})
 
     element["items"] = items
 
@@ -595,11 +588,11 @@ def _resolve_path(root: dict[str, Any], path: str) -> dict[str, Any]:
 
 def _target_for_element(element: dict[str, Any]) -> str:
     element_type = element.get("type")
-    if element_type in {"text", "rich-text"}:
+    if element_type == "text":
         return "text"
     if element_type == "image":
         return "image"
-    if element_type in {"list", "list-view", "grid-view"}:
+    if element_type in {"text-list", "list-view", "grid-view"}:
         return "items"
     if element_type == "table":
         return "table"

@@ -55,10 +55,12 @@ The user prompt contains one slide number and all shape objects from that slide.
 - Use `list-view` for repeated same-structure items in one row or column.
 - Use `grid-view` for repeated same-structure items arranged across multiple rows and columns.
 - Use `flex` or `grid` only when children are different elements or need distinct per-child content/positioning.
-- Preserve source content exactly: text strings, rich-text runs, list/table cell text, image names, image URLs/paths, and image data must match the input shapes without rewriting, summarizing, translating, or inventing replacements.
+- Use `text` for text boxes. Store content in optional `runs` as `TextRun` objects; do not output a top-level `text` field on text elements.
+- Use `text-list` for text-only lists. Each item must be a text item with `type: "text"` and `text`.
+- Preserve source content exactly: text strings, text runs, text-list item text, table cell text, image names, image URLs/paths, and image data must match the input shapes without rewriting, summarizing, translating, or inventing replacements.
 - Provide schema fields wherever the element supports them:
-  - text/rich-text/table cells: `minLength` and `maxLength`
-  - list: `minItems`, `maxItems`, `minItemLength`, and `maxItemLength`
+  - text/table cells: `minLength` and `maxLength`
+  - text-list: `minItems`, `maxItems`, `minItemLength`, and `maxItemLength`
   - table: `minColumns`, `maxColumns`, `minRows`, and `maxRows`
   - flex/grid/stack: `minChildren` and `maxChildren`
   - list-view/grid-view: `minCount` and `maxCount`

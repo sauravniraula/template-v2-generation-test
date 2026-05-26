@@ -74,28 +74,21 @@ export interface Shadow {
   offsetY?: Nullable<number>;
 }
 
-export interface RichTextRun {
-  text: string;
-  font?: Nullable<Font>;
-}
-
 export interface ChartDatum {
   label: string;
   value: number;
   color?: Nullable<string>;
 }
 
+export interface TextRun {
+  text: string;
+  font?: Nullable<Font>;
+}
+
 export interface TextListItem {
   type: "text";
   text: string;
 }
-
-export interface RichTextListItem {
-  type: "rich-text";
-  runs: RichTextRun[];
-}
-
-export type ListItem = TextListItem | RichTextListItem;
 
 export interface TextElement {
   type: "text";
@@ -108,25 +101,7 @@ export interface TextElement {
   fill?: Nullable<Fill>;
   stroke?: Nullable<Stroke>;
   shadow?: Nullable<Shadow>;
-  text?: Nullable<string>;
-
-  // Schema
-  maxLength?: Nullable<number>;
-  minLength?: Nullable<number>;
-}
-
-export interface RichTextElement {
-  type: "rich-text";
-  fixed?: Nullable<boolean>;
-  position?: Nullable<Position>;
-  size?: Nullable<Size>;
-  rotation?: Nullable<number>;
-  font?: Nullable<Font>;
-  alignment?: Nullable<Alignment>;
-  fill?: Nullable<Fill>;
-  stroke?: Nullable<Stroke>;
-  shadow?: Nullable<Shadow>;
-  runs?: Nullable<RichTextRun[]>;
+  runs?: Nullable<TextRun[]>;
 
   // Schema
   maxLength?: Nullable<number>;
@@ -161,15 +136,15 @@ export interface ImageElement {
   is_icon?: Nullable<boolean>;
 }
 
-export interface ListElement {
-  type: "list";
+export interface TextListElement {
+  type: "text-list";
   fixed?: Nullable<boolean>;
   position?: Nullable<Position>;
   size?: Nullable<Size>;
   rotation?: Nullable<number>;
   font?: Nullable<Font>;
   marker?: Nullable<Marker>;
-  items?: Nullable<ListItem[]>;
+  items?: Nullable<TextListItem[]>;
 
   // Schema
   maxItems?: Nullable<number>;
@@ -348,10 +323,9 @@ export interface StackElement {
 
 export type SlideElement =
   | TextElement
-  | RichTextElement
   | ContainerElement
   | ImageElement
-  | ListElement
+  | TextListElement
   | TableElement
   | RectangleElement
   | EllipseElement

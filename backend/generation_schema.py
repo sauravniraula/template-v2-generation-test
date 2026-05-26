@@ -12,12 +12,11 @@ from elements import (
     Grid,
     GridView,
     Image,
-    List as ListElement,
     ListView,
-    RichText,
     Stack,
     Table,
     Text,
+    TextList,
 )
 from llm_models import SlideLayout
 from llm_models import SlideLayouts
@@ -107,7 +106,7 @@ def _collect_element_fields(
     if _is_fixed(element):
         return
 
-    if isinstance(element, (Text, RichText, Image, ListElement, Table, Chart)):
+    if isinstance(element, (Text, Image, TextList, Table, Chart)):
         _add_field(
             key_prefix=key_prefix,
             target=_target_for_element(element),
@@ -208,7 +207,7 @@ def _schema_for_repeated_item(element: Any) -> JsonSchema | None:
     if _is_fixed(element):
         return None
 
-    if isinstance(element, (Text, RichText, Image, ListElement, Table, Chart)):
+    if isinstance(element, (Text, Image, TextList, Table, Chart)):
         return _schema_for_element_value(element)
 
     if isinstance(element, Container):
@@ -256,9 +255,6 @@ def _schema_for_element_value(element: Any) -> JsonSchema:
     if isinstance(element, Text):
         return _string_schema(element.minLength, element.maxLength)
 
-    if isinstance(element, RichText):
-        return _string_schema(element.minLength, element.maxLength)
-
     if isinstance(element, Image):
         return {
             "type": "object",
@@ -274,7 +270,7 @@ def _schema_for_element_value(element: Any) -> JsonSchema:
             "required": ["prompt"],
         }
 
-    if isinstance(element, ListElement):
+    if isinstance(element, TextList):
         schema: JsonSchema = {
             "type": "array",
             "items": _string_schema(element.minItemLength, element.maxItemLength),
@@ -340,11 +336,11 @@ def _table_cell_string_schema(element: Table) -> JsonSchema:
 
 
 def _target_for_element(element: Any) -> str:
-    if isinstance(element, (Text, RichText)):
+    if isinstance(element, Text):
         return "text"
     if isinstance(element, Image):
         return "image"
-    if isinstance(element, ListElement):
+    if isinstance(element, TextList):
         return "items"
     if isinstance(element, Table):
         return "table"

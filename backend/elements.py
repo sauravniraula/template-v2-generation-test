@@ -137,16 +137,11 @@ class BorderRadius(BaseModel):
 
 
 class Shadow(BaseModel):
-    color: Optional[str] = None
+    color: str
     blur: Optional[float] = None
     opacity: Optional[float] = None
     offsetX: Optional[float] = None
     offsetY: Optional[float] = None
-
-
-class RichTextRun(BaseModel):
-    text: str
-    font: Optional[Font] = None
 
 
 class ChartDatum(BaseModel):
@@ -155,23 +150,14 @@ class ChartDatum(BaseModel):
     color: Optional[str] = None
 
 
+class TextRun(BaseModel):
+    text: str
+    font: Optional[Font] = None
+
+
 class TextListItem(BaseModel):
     type: Literal["text"]
     text: str
-
-
-class RichTextListItem(BaseModel):
-    type: Literal["rich-text"]
-    runs: list[RichTextRun]
-
-
-ListItem: TypeAlias = Annotated[
-    Union[
-        TextListItem,
-        RichTextListItem,
-    ],
-    Field(discriminator="type"),
-]
 
 
 class Text(BaseModel):  # Konva Text
@@ -185,35 +171,7 @@ class Text(BaseModel):  # Konva Text
     fill: Optional[Fill] = None
     stroke: Optional[Stroke] = None
     shadow: Optional[Shadow] = None
-    text: Optional[str] = None
-
-    # Schema
-    maxLength: Optional[int] = None
-    minLength: Optional[int] = None
-
-    @model_validator(mode="after")
-    def validate_schema_bounds(self):
-        _validate_min_max(
-            self.minLength,
-            self.maxLength,
-            min_name="minLength",
-            max_name="maxLength",
-        )
-        return self
-
-
-class RichText(BaseModel):  # Konva Markdown
-    type: Literal["rich-text"]
-    fixed: bool
-    position: Optional[Position] = None
-    size: Optional[Size] = None
-    rotation: Optional[float] = None
-    font: Optional[Font] = None
-    alignment: Optional[Alignment] = None
-    fill: Optional[Fill] = None
-    stroke: Optional[Stroke] = None
-    shadow: Optional[Shadow] = None
-    runs: Optional[list[RichTextRun]] = None
+    runs: Optional[list[TextRun]] = None
 
     # Schema
     maxLength: Optional[int] = None
@@ -258,15 +216,15 @@ class Image(BaseModel):  # Konva Image
     is_icon: Optional[bool] = None
 
 
-class List(BaseModel):
-    type: Literal["list"]
+class TextList(BaseModel):  # Konva Group
+    type: Literal["text-list"]
     fixed: bool
     position: Optional[Position] = None
     size: Optional[Size] = None
     rotation: Optional[float] = None
     font: Optional[Font] = None
     marker: Optional[Marker] = None
-    items: Optional[list[ListItem]] = None
+    items: Optional[list[TextListItem]] = None
 
     # Schema
     maxItems: Optional[int] = None
@@ -554,10 +512,9 @@ class Stack(BaseModel):
 SlideElement: TypeAlias = Annotated[
     Union[
         Text,
-        RichText,
         Container,
         Image,
-        List,
+        TextList,
         Table,
         Rectangle,
         Ellipse,
@@ -595,16 +552,11 @@ __all__ = [
     "ImageFit",
     "LayoutAlignment",
     "Line",
-    "List",
     "ListView",
-    "ListItem",
     "Marker",
     "Padding",
     "Position",
     "Rectangle",
-    "RichText",
-    "RichTextListItem",
-    "RichTextRun",
     "Shadow",
     "Size",
     "SlideElement",
@@ -613,7 +565,9 @@ __all__ = [
     "Table",
     "TableCell",
     "Text",
+    "TextList",
     "TextListItem",
+    "TextRun",
     "TextWrap",
     "VerticalAlignment",
     "GridView",
