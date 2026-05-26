@@ -60,7 +60,7 @@
               },
               "rotation": null,
               "data": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/10235c87-374b-4de0-baaf-e08a24c206f4.png",
-              "name": null,
+              "name": "Global Warming Split Landscape",
               "fit": "cover",
               "borderRadius": {
                 "tl": 16.0,
@@ -193,7 +193,7 @@
               "fill": null,
               "stroke": null,
               "shadow": null,
-              "text": "Dive into the vibrant world of Taco Bell, a brand that has redefined fast food with its bold flavors and innovative menu items. This presentation explores the extensive variety of tacos, burritos, and specialties that have captivated millions worldwide. We will also examine the seamless digital ordering experience, the strategic expansion of locations in Charlotte, and how Taco Bell continues to lead the market with creative culinary twists and customer-centric initiatives.",
+              "text": "Global warming represents the long-term heating of Earth's climate system observed since the pre-industrial period (between 1850 and 1900) due to human activities, primarily fossil fuel burning, which increases heat-trapping greenhouse gas levels. Rising temperatures are driving profound changes in our climate, with the global average temperature having already risen by approximately 1.1\u00b0C. Crossing the critical 1.5\u00b0C threshold significantly increases the risk of irreversible catastrophic impacts, making immediate and coordinated action essential to secure a sustainable future.",
               "maxLength": 800,
               "minLength": 50
             }
@@ -550,7 +550,7 @@
               "fill": null,
               "stroke": null,
               "shadow": null,
-              "text": "Taco Bell: A Yum! Brands Subsidiary",
+              "text": "CO2 acts as the market leader in emissions, driving long-term warming. CH4, N2O, and fluorinated gases are potent contributors.",
               "maxLength": 100,
               "minLength": 1
             },
@@ -725,7 +725,7 @@
               },
               "rotation": null,
               "data": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/4482acce-f6a0-4047-a380-79f1cfab01c1.png",
-              "name": null,
+              "name": "Vertical stripes representing Earth's atmospheric layers from surface to space, gradient blues and whites, abstract and clean design",
               "fit": "cover",
               "borderRadius": {
                 "tl": 16.0,
@@ -748,7 +748,7 @@
               },
               "rotation": null,
               "data": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/df187891-a14f-463d-8f6a-8fc7e9bd6291.png",
-              "name": null,
+              "name": "Industrial smokestacks releasing thick grey smoke into the sky, overlaid with a faint, transparent molecular structure of Carbon Dioxide (CO2) in the foreground",
               "fit": "cover",
               "borderRadius": {
                 "tl": 70.0,
@@ -799,7 +799,7 @@
               "fill": null,
               "stroke": null,
               "shadow": null,
-              "text": "2/7",
+              "text": "2",
               "maxLength": null,
               "minLength": null
             }
@@ -842,35 +842,7 @@
               "shadow": null,
               "runs": [
                 {
-                  "text": "Menu Favorites ",
-                  "font": {
-                    "size": 60.0,
-                    "family": "Poppins",
-                    "color": "#111827",
-                    "bold": true,
-                    "italic": null,
-                    "lineHeight": null,
-                    "letterSpacing": null,
-                    "wrap": null,
-                    "ellipsis": null
-                  }
-                },
-                {
-                  "text": "&",
-                  "font": {
-                    "size": 60.0,
-                    "family": "Poppins",
-                    "color": "#111827",
-                    "bold": true,
-                    "italic": null,
-                    "lineHeight": null,
-                    "letterSpacing": null,
-                    "wrap": null,
-                    "ellipsis": null
-                  }
-                },
-                {
-                  "text": " Varieties",
+                  "text": "The Emissions Menu",
                   "font": {
                     "size": 60.0,
                     "family": "Poppins",
@@ -1052,7 +1024,7 @@
               "fill": null,
               "stroke": null,
               "shadow": null,
-              "text": "Charlotte Locations & Experience",
+              "text": "Global Impact Zones",
               "maxLength": 100,
               "minLength": 1
             }
@@ -1120,22 +1092,16 @@
               "rotation": null,
               "columns": [
                 {
-                  "fill": {
-                    "color": "f9fafb",
-                    "opacity": 1.0
-                  },
+                  "fill": null,
                   "stroke": null,
-                  "text": "Location",
+                  "text": "Region",
                   "maxLength": null,
                   "minLength": null
                 },
                 {
-                  "fill": {
-                    "color": "f9fafb",
-                    "opacity": 1.0
-                  },
+                  "fill": null,
                   "stroke": null,
-                  "text": "Address",
+                  "text": "Primary Threat",
                   "maxLength": null,
                   "minLength": null
                 }
@@ -1145,14 +1111,14 @@
                   {
                     "fill": null,
                     "stroke": null,
-                    "text": "Woodlawn Rd",
+                    "text": "Miami, USA",
                     "maxLength": null,
                     "minLength": null
                   },
                   {
                     "fill": null,
                     "stroke": null,
-                    "text": "1800 E Woodlawn Rd",
+                    "text": "Chronic Flooding",
                     "maxLength": null,
                     "minLength": null
                   }
@@ -1161,14 +1127,46 @@
                   {
                     "fill": null,
                     "stroke": null,
-                    "text": "University City",
+                    "text": "Jakarta, Indonesia",
                     "maxLength": null,
                     "minLength": null
                   },
                   {
                     "fill": null,
                     "stroke": null,
-                    "text": "8661 Jw Clay Blvd, Charlotte, NC 28262",
+                    "text": "Sinking City",
+                    "maxLength": null,
+                    "minLength": null
+                  }
+                ],
+                [
+                  {
+                    "fill": null,
+                    "stroke": null,
+                    "text": "The Arctic",
+                    "maxLength": null,
+                    "minLength": null
+                  },
+                  {
+                    "fill": null,
+                    "stroke": null,
+                    "text": "Melting Ice Caps",
+                    "maxLength": null,
+                    "minLength": null
+                  }
+                ],
+                [
+                  {
+                    "fill": null,
+                    "stroke": null,
+                    "text": "Sahel Africa",
+                    "maxLength": null,
+                    "minLength": null
+                  },
+                  {
+                    "fill": null,
+                    "stroke": null,
+                    "text": "Food Insecurity",
                     "maxLength": null,
                     "minLength": null
                   }
@@ -1220,7 +1218,7 @@
               "fill": null,
               "stroke": null,
               "shadow": null,
-              "text": "Customer experience:",
+              "text": "Human Impact",
               "maxLength": 50,
               "minLength": 1
             },
@@ -1327,7 +1325,7 @@
               "fill": null,
               "stroke": null,
               "shadow": null,
-              "text": "4/7",
+              "text": "4",
               "maxLength": null,
               "minLength": null
             }
@@ -1473,7 +1471,7 @@
               "fill": null,
               "stroke": null,
               "shadow": null,
-              "text": "Convenient Ordering Options",
+              "text": "Strategic Solutions Grid",
               "maxLength": 60,
               "minLength": 5
             }
@@ -1567,35 +1565,7 @@
               "shadow": null,
               "runs": [
                 {
-                  "text": "Innovation ",
-                  "font": {
-                    "size": 60.0,
-                    "family": "Poppins",
-                    "color": "111827",
-                    "bold": true,
-                    "italic": null,
-                    "lineHeight": null,
-                    "letterSpacing": null,
-                    "wrap": null,
-                    "ellipsis": null
-                  }
-                },
-                {
-                  "text": "&",
-                  "font": {
-                    "size": 60.0,
-                    "family": "Poppins",
-                    "color": "111827",
-                    "bold": true,
-                    "italic": null,
-                    "lineHeight": null,
-                    "letterSpacing": null,
-                    "wrap": null,
-                    "ellipsis": null
-                  }
-                },
-                {
-                  "text": " New Menu Items",
+                  "text": "Emerging Green Technologies",
                   "font": {
                     "size": 60.0,
                     "family": "Poppins",
@@ -1639,7 +1609,7 @@
               },
               "rotation": null,
               "data": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/5d237c727dfd2de3f40790974a8b40d9.png",
-              "name": null,
+              "name": "Direct Air Capture Plant",
               "fit": "cover",
               "borderRadius": null,
               "is_icon": null
@@ -1657,7 +1627,7 @@
               },
               "rotation": null,
               "data": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/e56e32d5-f62a-4d0f-bee8-c05e4de345dd.png",
-              "name": null,
+              "name": "Green Hydrogen Fuel Cell",
               "fit": "cover",
               "borderRadius": {
                 "tl": 16.0,
@@ -1680,7 +1650,7 @@
               },
               "rotation": null,
               "data": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/426b8a54-cd87-4e63-a230-745da31da758.png",
-              "name": null,
+              "name": "Smart Grid Dashboard",
               "fit": "cover",
               "borderRadius": {
                 "tl": 16.0,
@@ -1703,7 +1673,7 @@
               },
               "rotation": null,
               "data": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/19c6431f-47dc-41e7-8924-d2a9ca058b1a.png",
-              "name": null,
+              "name": "Carbon Storage Facility",
               "fit": "cover",
               "borderRadius": {
                 "tl": 16.0,
@@ -1726,7 +1696,7 @@
               },
               "rotation": null,
               "data": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/59a2c662-3b33-4287-8db4-69e8d6bf3f3a.png",
-              "name": null,
+              "name": "Renewable Energy Landscape",
               "fit": "cover",
               "borderRadius": {
                 "tl": 16.0,
@@ -1936,35 +1906,7 @@
               "shadow": null,
               "runs": [
                 {
-                  "text": "Beyond Food: Community ",
-                  "font": {
-                    "size": 56.0,
-                    "family": "Poppins",
-                    "color": "111827",
-                    "bold": true,
-                    "italic": null,
-                    "lineHeight": null,
-                    "letterSpacing": null,
-                    "wrap": null,
-                    "ellipsis": null
-                  }
-                },
-                {
-                  "text": "&",
-                  "font": {
-                    "size": 56.0,
-                    "family": "Poppins",
-                    "color": "111827",
-                    "bold": true,
-                    "italic": null,
-                    "lineHeight": null,
-                    "letterSpacing": null,
-                    "wrap": null,
-                    "ellipsis": null
-                  }
-                },
-                {
-                  "text": " Events",
+                  "text": "Global Climate Action Initiatives",
                   "font": {
                     "size": 56.0,
                     "family": "Poppins",
@@ -2016,173 +1958,640 @@
               "rowGap": null,
               "children": [
                 {
-                  "type": "list-view",
+                  "type": "flex",
                   "fixed": false,
-                  "position": null,
-                  "size": null,
+                  "position": {
+                    "x": 0.0,
+                    "y": 0.0
+                  },
+                  "size": {
+                    "width": 1.0,
+                    "height": 1.0
+                  },
                   "rotation": null,
-                  "direction": null,
+                  "direction": "column",
+                  "wrap": null,
+                  "alignItems": null,
+                  "justifyContent": null,
                   "gap": null,
                   "columnGap": null,
                   "rowGap": null,
-                  "alignItems": null,
-                  "justifyContent": null,
-                  "count": 5,
-                  "item": {
-                    "type": "flex",
-                    "fixed": false,
-                    "position": {
-                      "x": 0.0,
-                      "y": 0.0
-                    },
-                    "size": {
-                      "width": 410.0,
-                      "height": 72.5
-                    },
-                    "rotation": null,
-                    "direction": "row",
-                    "wrap": null,
-                    "alignItems": null,
-                    "justifyContent": null,
-                    "gap": 12.0,
-                    "columnGap": null,
-                    "rowGap": null,
-                    "children": [
-                      {
-                        "type": "rectangle",
-                        "fixed": true,
-                        "position": {
-                          "x": 0.0,
-                          "y": 0.0
-                        },
-                        "size": {
-                          "width": 48.0,
-                          "height": 48.0
-                        },
-                        "rotation": null,
-                        "fill": {
-                          "color": "9333ea",
-                          "opacity": 1.0
-                        },
-                        "stroke": null,
-                        "borderRadius": {
-                          "tl": 12.0,
-                          "tr": 12.0,
-                          "bl": 12.0,
-                          "br": 12.0
-                        },
-                        "shadow": null
+                  "children": [
+                    {
+                      "type": "flex",
+                      "fixed": false,
+                      "position": {
+                        "x": 0.0,
+                        "y": 0.0
                       },
-                      {
-                        "type": "image",
-                        "fixed": false,
-                        "position": {
-                          "x": 12.0,
-                          "y": 12.0
-                        },
-                        "size": {
-                          "width": 24.0,
-                          "height": 24.0
-                        },
-                        "rotation": null,
-                        "data": null,
-                        "name": null,
-                        "fit": "fill",
-                        "borderRadius": null,
-                        "is_icon": true
+                      "size": {
+                        "width": 410.0,
+                        "height": 72.5
                       },
-                      {
-                        "type": "flex",
-                        "fixed": false,
-                        "position": {
-                          "x": 68.0,
-                          "y": 0.0
-                        },
-                        "size": {
-                          "width": 342.0,
-                          "height": 72.5
-                        },
-                        "rotation": null,
-                        "direction": "column",
-                        "wrap": null,
-                        "alignItems": null,
-                        "justifyContent": null,
-                        "gap": 4.0,
-                        "columnGap": null,
-                        "rowGap": null,
-                        "children": [
-                          {
-                            "type": "text",
-                            "fixed": false,
-                            "position": {
-                              "x": 0.0,
-                              "y": 0.0
-                            },
-                            "size": {
-                              "width": 342.0,
-                              "height": 24.0
-                            },
-                            "rotation": null,
-                            "font": {
-                              "size": 20.0,
-                              "family": "Poppins",
-                              "color": "111827",
-                              "bold": true,
-                              "italic": null,
-                              "lineHeight": null,
-                              "letterSpacing": null,
-                              "wrap": null,
-                              "ellipsis": null
-                            },
-                            "alignment": null,
-                            "fill": null,
-                            "stroke": null,
-                            "shadow": null,
-                            "text": "",
-                            "maxLength": 50,
-                            "minLength": 5
+                      "rotation": null,
+                      "direction": "row",
+                      "wrap": null,
+                      "alignItems": null,
+                      "justifyContent": null,
+                      "gap": 12.0,
+                      "columnGap": null,
+                      "rowGap": null,
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "fixed": true,
+                          "position": {
+                            "x": 0.0,
+                            "y": 0.0
                           },
-                          {
-                            "type": "text",
-                            "fixed": false,
-                            "position": {
-                              "x": 0.0,
-                              "y": 0.0
+                          "size": {
+                            "width": 48.0,
+                            "height": 48.0
+                          },
+                          "rotation": null,
+                          "fill": {
+                            "color": "9333ea",
+                            "opacity": 1.0
+                          },
+                          "stroke": null,
+                          "borderRadius": {
+                            "tl": 12.0,
+                            "tr": 12.0,
+                            "bl": 12.0,
+                            "br": 12.0
+                          },
+                          "shadow": null
+                        },
+                        {
+                          "type": "image",
+                          "fixed": false,
+                          "position": {
+                            "x": 12.0,
+                            "y": 12.0
+                          },
+                          "size": {
+                            "width": 24.0,
+                            "height": 24.0
+                          },
+                          "rotation": null,
+                          "data": null,
+                          "name": "Diplomats signing the Paris Agreement document at a large conference table",
+                          "fit": "fill",
+                          "borderRadius": null,
+                          "is_icon": true
+                        },
+                        {
+                          "type": "flex",
+                          "fixed": false,
+                          "position": {
+                            "x": 68.0,
+                            "y": 0.0
+                          },
+                          "size": {
+                            "width": 342.0,
+                            "height": 72.5
+                          },
+                          "rotation": null,
+                          "direction": "column",
+                          "wrap": null,
+                          "alignItems": null,
+                          "justifyContent": null,
+                          "gap": 4.0,
+                          "columnGap": null,
+                          "rowGap": null,
+                          "children": [
+                            {
+                              "type": "text",
+                              "fixed": false,
+                              "position": {
+                                "x": 0.0,
+                                "y": 0.0
+                              },
+                              "size": {
+                                "width": 342.0,
+                                "height": 24.0
+                              },
+                              "rotation": null,
+                              "font": {
+                                "size": 20.0,
+                                "family": "Poppins",
+                                "color": "111827",
+                                "bold": true,
+                                "italic": null,
+                                "lineHeight": null,
+                                "letterSpacing": null,
+                                "wrap": null,
+                                "ellipsis": null
+                              },
+                              "alignment": null,
+                              "fill": null,
+                              "stroke": null,
+                              "shadow": null,
+                              "text": "Paris Agreement",
+                              "maxLength": 50,
+                              "minLength": 5
                             },
-                            "size": {
-                              "width": 342.0,
-                              "height": 22.0
+                            {
+                              "type": "text",
+                              "fixed": false,
+                              "position": {
+                                "x": 0.0,
+                                "y": 0.0
+                              },
+                              "size": {
+                                "width": 342.0,
+                                "height": 22.0
+                              },
+                              "rotation": null,
+                              "font": {
+                                "size": 16.0,
+                                "family": "Poppins",
+                                "color": "4b5563",
+                                "bold": null,
+                                "italic": null,
+                                "lineHeight": null,
+                                "letterSpacing": null,
+                                "wrap": null,
+                                "ellipsis": null
+                              },
+                              "alignment": null,
+                              "fill": null,
+                              "stroke": null,
+                              "shadow": null,
+                              "text": "International treaty on climate change mitigation",
+                              "maxLength": 60,
+                              "minLength": 5
+                            }
+                          ],
+                          "maxChildren": null,
+                          "minChildren": null
+                        }
+                      ],
+                      "maxChildren": null,
+                      "minChildren": null
+                    },
+                    {
+                      "type": "flex",
+                      "fixed": false,
+                      "position": {
+                        "x": 0.0,
+                        "y": 0.0
+                      },
+                      "size": {
+                        "width": 410.0,
+                        "height": 72.5
+                      },
+                      "rotation": null,
+                      "direction": "row",
+                      "wrap": null,
+                      "alignItems": null,
+                      "justifyContent": null,
+                      "gap": 12.0,
+                      "columnGap": null,
+                      "rowGap": null,
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "fixed": true,
+                          "position": {
+                            "x": 0.0,
+                            "y": 0.0
+                          },
+                          "size": {
+                            "width": 48.0,
+                            "height": 48.0
+                          },
+                          "rotation": null,
+                          "fill": {
+                            "color": "9333ea",
+                            "opacity": 1.0
+                          },
+                          "stroke": null,
+                          "borderRadius": {
+                            "tl": 12.0,
+                            "tr": 12.0,
+                            "bl": 12.0,
+                            "br": 12.0
+                          },
+                          "shadow": null
+                        },
+                        {
+                          "type": "image",
+                          "fixed": false,
+                          "position": {
+                            "x": 12.0,
+                            "y": 12.0
+                          },
+                          "size": {
+                            "width": 24.0,
+                            "height": 24.0
+                          },
+                          "rotation": null,
+                          "data": null,
+                          "name": "Interior view of the UN climate change conference hall with delegates",
+                          "fit": "fill",
+                          "borderRadius": null,
+                          "is_icon": true
+                        },
+                        {
+                          "type": "flex",
+                          "fixed": false,
+                          "position": {
+                            "x": 68.0,
+                            "y": 0.0
+                          },
+                          "size": {
+                            "width": 342.0,
+                            "height": 72.5
+                          },
+                          "rotation": null,
+                          "direction": "column",
+                          "wrap": null,
+                          "alignItems": null,
+                          "justifyContent": null,
+                          "gap": 4.0,
+                          "columnGap": null,
+                          "rowGap": null,
+                          "children": [
+                            {
+                              "type": "text",
+                              "fixed": false,
+                              "position": {
+                                "x": 0.0,
+                                "y": 0.0
+                              },
+                              "size": {
+                                "width": 342.0,
+                                "height": 24.0
+                              },
+                              "rotation": null,
+                              "font": {
+                                "size": 20.0,
+                                "family": "Poppins",
+                                "color": "111827",
+                                "bold": true,
+                                "italic": null,
+                                "lineHeight": null,
+                                "letterSpacing": null,
+                                "wrap": null,
+                                "ellipsis": null
+                              },
+                              "alignment": null,
+                              "fill": null,
+                              "stroke": null,
+                              "shadow": null,
+                              "text": "COP Conferences",
+                              "maxLength": 50,
+                              "minLength": 5
                             },
-                            "rotation": null,
-                            "font": {
-                              "size": 16.0,
-                              "family": "Poppins",
-                              "color": "4b5563",
-                              "bold": null,
-                              "italic": null,
-                              "lineHeight": null,
-                              "letterSpacing": null,
-                              "wrap": null,
-                              "ellipsis": null
+                            {
+                              "type": "text",
+                              "fixed": false,
+                              "position": {
+                                "x": 0.0,
+                                "y": 0.0
+                              },
+                              "size": {
+                                "width": 342.0,
+                                "height": 22.0
+                              },
+                              "rotation": null,
+                              "font": {
+                                "size": 16.0,
+                                "family": "Poppins",
+                                "color": "4b5563",
+                                "bold": null,
+                                "italic": null,
+                                "lineHeight": null,
+                                "letterSpacing": null,
+                                "wrap": null,
+                                "ellipsis": null
+                              },
+                              "alignment": null,
+                              "fill": null,
+                              "stroke": null,
+                              "shadow": null,
+                              "text": "Global climate summits for policy decisions",
+                              "maxLength": 60,
+                              "minLength": 5
+                            }
+                          ],
+                          "maxChildren": null,
+                          "minChildren": null
+                        }
+                      ],
+                      "maxChildren": null,
+                      "minChildren": null
+                    },
+                    {
+                      "type": "flex",
+                      "fixed": false,
+                      "position": {
+                        "x": 0.0,
+                        "y": 0.0
+                      },
+                      "size": {
+                        "width": 410.0,
+                        "height": 72.5
+                      },
+                      "rotation": null,
+                      "direction": "row",
+                      "wrap": null,
+                      "alignItems": null,
+                      "justifyContent": null,
+                      "gap": 12.0,
+                      "columnGap": null,
+                      "rowGap": null,
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "fixed": true,
+                          "position": {
+                            "x": 0.0,
+                            "y": 0.0
+                          },
+                          "size": {
+                            "width": 48.0,
+                            "height": 48.0
+                          },
+                          "rotation": null,
+                          "fill": {
+                            "color": "9333ea",
+                            "opacity": 1.0
+                          },
+                          "stroke": null,
+                          "borderRadius": {
+                            "tl": 12.0,
+                            "tr": 12.0,
+                            "bl": 12.0,
+                            "br": 12.0
+                          },
+                          "shadow": null
+                        },
+                        {
+                          "type": "image",
+                          "fixed": false,
+                          "position": {
+                            "x": 12.0,
+                            "y": 12.0
+                          },
+                          "size": {
+                            "width": 24.0,
+                            "height": 24.0
+                          },
+                          "rotation": null,
+                          "data": null,
+                          "name": "Large crowd of young students marching with climate protest signs",
+                          "fit": "fill",
+                          "borderRadius": null,
+                          "is_icon": true
+                        },
+                        {
+                          "type": "flex",
+                          "fixed": false,
+                          "position": {
+                            "x": 68.0,
+                            "y": 0.0
+                          },
+                          "size": {
+                            "width": 342.0,
+                            "height": 72.5
+                          },
+                          "rotation": null,
+                          "direction": "column",
+                          "wrap": null,
+                          "alignItems": null,
+                          "justifyContent": null,
+                          "gap": 4.0,
+                          "columnGap": null,
+                          "rowGap": null,
+                          "children": [
+                            {
+                              "type": "text",
+                              "fixed": false,
+                              "position": {
+                                "x": 0.0,
+                                "y": 0.0
+                              },
+                              "size": {
+                                "width": 342.0,
+                                "height": 24.0
+                              },
+                              "rotation": null,
+                              "font": {
+                                "size": 20.0,
+                                "family": "Poppins",
+                                "color": "111827",
+                                "bold": true,
+                                "italic": null,
+                                "lineHeight": null,
+                                "letterSpacing": null,
+                                "wrap": null,
+                                "ellipsis": null
+                              },
+                              "alignment": null,
+                              "fill": null,
+                              "stroke": null,
+                              "shadow": null,
+                              "text": "Fridays for Future",
+                              "maxLength": 50,
+                              "minLength": 5
                             },
-                            "alignment": null,
-                            "fill": null,
-                            "stroke": null,
-                            "shadow": null,
-                            "text": "",
-                            "maxLength": 60,
-                            "minLength": 5
-                          }
-                        ],
-                        "maxChildren": null,
-                        "minChildren": null
-                      }
-                    ],
-                    "maxChildren": null,
-                    "minChildren": null
-                  },
-                  "maxCount": 6,
-                  "minCount": 3
+                            {
+                              "type": "text",
+                              "fixed": false,
+                              "position": {
+                                "x": 0.0,
+                                "y": 0.0
+                              },
+                              "size": {
+                                "width": 342.0,
+                                "height": 22.0
+                              },
+                              "rotation": null,
+                              "font": {
+                                "size": 16.0,
+                                "family": "Poppins",
+                                "color": "4b5563",
+                                "bold": null,
+                                "italic": null,
+                                "lineHeight": null,
+                                "letterSpacing": null,
+                                "wrap": null,
+                                "ellipsis": null
+                              },
+                              "alignment": null,
+                              "fill": null,
+                              "stroke": null,
+                              "shadow": null,
+                              "text": "Youth-led global protest movement",
+                              "maxLength": 60,
+                              "minLength": 5
+                            }
+                          ],
+                          "maxChildren": null,
+                          "minChildren": null
+                        }
+                      ],
+                      "maxChildren": null,
+                      "minChildren": null
+                    },
+                    {
+                      "type": "flex",
+                      "fixed": false,
+                      "position": {
+                        "x": 0.0,
+                        "y": 0.0
+                      },
+                      "size": {
+                        "width": 410.0,
+                        "height": 72.5
+                      },
+                      "rotation": null,
+                      "direction": "row",
+                      "wrap": null,
+                      "alignItems": null,
+                      "justifyContent": null,
+                      "gap": 12.0,
+                      "columnGap": null,
+                      "rowGap": null,
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "fixed": true,
+                          "position": {
+                            "x": 0.0,
+                            "y": 0.0
+                          },
+                          "size": {
+                            "width": 48.0,
+                            "height": 48.0
+                          },
+                          "rotation": null,
+                          "fill": {
+                            "color": "9333ea",
+                            "opacity": 1.0
+                          },
+                          "stroke": null,
+                          "borderRadius": {
+                            "tl": 12.0,
+                            "tr": 12.0,
+                            "bl": 12.0,
+                            "br": 12.0
+                          },
+                          "shadow": null
+                        },
+                        {
+                          "type": "image",
+                          "fixed": false,
+                          "position": {
+                            "x": 12.0,
+                            "y": 12.0
+                          },
+                          "size": {
+                            "width": 24.0,
+                            "height": 24.0
+                          },
+                          "rotation": null,
+                          "data": null,
+                          "name": "Community volunteers planting saplings in a local urban park",
+                          "fit": "fill",
+                          "borderRadius": null,
+                          "is_icon": true
+                        },
+                        {
+                          "type": "flex",
+                          "fixed": false,
+                          "position": {
+                            "x": 68.0,
+                            "y": 0.0
+                          },
+                          "size": {
+                            "width": 342.0,
+                            "height": 72.5
+                          },
+                          "rotation": null,
+                          "direction": "column",
+                          "wrap": null,
+                          "alignItems": null,
+                          "justifyContent": null,
+                          "gap": 4.0,
+                          "columnGap": null,
+                          "rowGap": null,
+                          "children": [
+                            {
+                              "type": "text",
+                              "fixed": false,
+                              "position": {
+                                "x": 0.0,
+                                "y": 0.0
+                              },
+                              "size": {
+                                "width": 342.0,
+                                "height": 24.0
+                              },
+                              "rotation": null,
+                              "font": {
+                                "size": 20.0,
+                                "family": "Poppins",
+                                "color": "111827",
+                                "bold": true,
+                                "italic": null,
+                                "lineHeight": null,
+                                "letterSpacing": null,
+                                "wrap": null,
+                                "ellipsis": null
+                              },
+                              "alignment": null,
+                              "fill": null,
+                              "stroke": null,
+                              "shadow": null,
+                              "text": "Local Conservation",
+                              "maxLength": 50,
+                              "minLength": 5
+                            },
+                            {
+                              "type": "text",
+                              "fixed": false,
+                              "position": {
+                                "x": 0.0,
+                                "y": 0.0
+                              },
+                              "size": {
+                                "width": 342.0,
+                                "height": 22.0
+                              },
+                              "rotation": null,
+                              "font": {
+                                "size": 16.0,
+                                "family": "Poppins",
+                                "color": "4b5563",
+                                "bold": null,
+                                "italic": null,
+                                "lineHeight": null,
+                                "letterSpacing": null,
+                                "wrap": null,
+                                "ellipsis": null
+                              },
+                              "alignment": null,
+                              "fill": null,
+                              "stroke": null,
+                              "shadow": null,
+                              "text": "Community rewilding and restoration projects",
+                              "maxLength": 60,
+                              "minLength": 5
+                            }
+                          ],
+                          "maxChildren": null,
+                          "minChildren": null
+                        }
+                      ],
+                      "maxChildren": null,
+                      "minChildren": null
+                    }
+                  ],
+                  "maxChildren": null,
+                  "minChildren": null
                 },
                 {
                   "type": "stack",
@@ -2210,7 +2619,7 @@
                       },
                       "rotation": null,
                       "data": null,
-                      "name": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/5d237c727dfd2de3f40790974a8b40d9.png",
+                      "name": "World leaders standing together signing a historic climate document",
                       "fit": "cover",
                       "borderRadius": null,
                       "is_icon": null
@@ -2246,7 +2655,7 @@
                       },
                       "rotation": null,
                       "data": null,
-                      "name": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/4482acce-f6a0-4047-a380-79f1cfab01c1.png",
+                      "name": "Diverse crowd of people marching in the streets holding protest banners",
                       "fit": "cover",
                       "borderRadius": {
                         "tl": 16.0,
@@ -2269,7 +2678,7 @@
                       },
                       "rotation": null,
                       "data": null,
-                      "name": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/d8a93685-1c7e-4325-8fe7-9994dee02bc0.png",
+                      "name": "Group of volunteers planting trees with wind turbines in background",
                       "fit": "cover",
                       "borderRadius": {
                         "tl": 16.0,

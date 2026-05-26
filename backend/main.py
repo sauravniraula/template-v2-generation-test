@@ -5,11 +5,11 @@ from typing import Any
 
 from pydantic import BaseModel, ValidationError
 
-from llm_models import SlideComponents, SlideLayouts
-from template import generate_slide_components, generate_slide_layouts
+from layout_normalizer import normalize_slide_layouts
+from llm_models import SlideLayouts
+from template import generate_slide_layouts
 
 presentation_file = "assets/presentation.json"
-components_file = "assets/components.json"
 layouts_file = "assets/layouts.json"
 retry_loop = True
 
@@ -17,6 +17,16 @@ retry_loop = True
 def read_json(file_path: str) -> Any:
     with open(file_path, "r") as f:
         return json.load(f)
+
+
+def write_json(file_path: str, data: Any) -> None:
+    directory = os.path.dirname(file_path)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
+
+    with open(file_path, "w") as f:
+        json.dump(data, f, indent=2)
+        f.write("\n")
 
 
 def load_or_generate_json(
@@ -27,11 +37,16 @@ def load_or_generate_json(
 ) -> dict[str, Any]:
     if os.path.exists(file_path):
         print(f"Using existing {file_path}")
-        data = read_json(file_path)
+        original_data = read_json(file_path)
+        data = original_data
         if normalize:
             data = normalize(data)
         try:
-            return validate_with_model(data, output_model)
+            validated = validate_with_model(data, output_model)
+            if data != original_data:
+                write_json(file_path, validated)
+                print(f"Saved normalized {file_path}")
+            return validated
         except ValidationError as exc:
             print(
                 f"Existing {file_path} failed {output_model.__name__} validation with {exc.error_count()} errors."
@@ -39,10 +54,20 @@ def load_or_generate_json(
             if not retry_loop:
                 raise
             print(f"Regenerating {file_path}")
-            return validate_with_model(generate(), output_model)
+            data = generate()
+            if normalize:
+                data = normalize(data)
+            validated = validate_with_model(data, output_model)
+            write_json(file_path, validated)
+            return validated
 
     print(f"Generating {file_path}")
-    return validate_with_model(generate(), output_model)
+    data = generate()
+    if normalize:
+        data = normalize(data)
+    validated = validate_with_model(data, output_model)
+    write_json(file_path, validated)
+    return validated
 
 
 def validate_with_model(
@@ -53,13 +78,6 @@ def validate_with_model(
         return data
 
     return output_model.model_validate(data).model_dump(mode="json")
-
-
-def normalize_layouts(data: Any) -> Any:
-    if isinstance(data, list):
-        data = {"layouts": data}
-
-    return normalize_description_keys(data)
 
 
 def normalize_description_keys(value: Any) -> Any:
@@ -77,29 +95,26 @@ def normalize_description_keys(value: Any) -> Any:
     return value
 
 
+def normalize_layout_response(value: Any) -> Any:
+    normalized = normalize_slide_layouts(normalize_description_keys(value))
+
+    if isinstance(normalized, list):
+        return {"layouts": normalized}
+
+    return normalized
+
+
 def main() -> None:
     presentation = read_json(presentation_file)
-
-    components = load_or_generate_json(
-        components_file,
-        lambda: generate_slide_components(
-            presentation,
-            retry_loop=retry_loop,
-            response_file=components_file,
-        ),
-        normalize=normalize_description_keys,
-        output_model=SlideComponents,
-    )
 
     load_or_generate_json(
         layouts_file,
         lambda: generate_slide_layouts(
             presentation,
-            components,
             retry_loop=retry_loop,
             response_file=layouts_file,
         ),
-        normalize=normalize_layouts,
+        normalize=normalize_layout_response,
         output_model=SlideLayouts,
     )
 

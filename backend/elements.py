@@ -5,7 +5,34 @@ from __future__ import annotations
 from enum import Enum
 from typing import Annotated, Literal, Optional, TypeAlias, Union
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
+
+
+def _validate_min_max(
+    min_value: int | None,
+    max_value: int | None,
+    *,
+    min_name: str,
+    max_name: str,
+) -> None:
+    if min_value is not None and max_value is not None and min_value > max_value:
+        raise ValueError(f"{min_name} must be less than or equal to {max_name}")
+
+
+def _validate_value_bounds(
+    value: int,
+    min_value: int | None,
+    max_value: int | None,
+    *,
+    value_name: str,
+    min_name: str,
+    max_name: str,
+) -> None:
+    if min_value is not None and value < min_value:
+        raise ValueError(f"{value_name} must be greater than or equal to {min_name}")
+
+    if max_value is not None and value > max_value:
+        raise ValueError(f"{value_name} must be less than or equal to {max_name}")
 
 
 class HorizontalAlignment(str, Enum):
@@ -79,9 +106,9 @@ class Alignment(BaseModel):
 
 
 class Font(BaseModel):
-    family: str
     size: float
-    color: str
+    family: Optional[str] = None
+    color: Optional[str] = None
     bold: Optional[bool] = None
     italic: Optional[bool] = None
     lineHeight: Optional[float] = None
@@ -147,12 +174,13 @@ ListItem: TypeAlias = Annotated[
 ]
 
 
-class Text(BaseModel):
+class Text(BaseModel):  # Konva Text
     type: Literal["text"]
+    fixed: bool
     position: Optional[Position] = None
     size: Optional[Size] = None
     rotation: Optional[float] = None
-    font: Font
+    font: Optional[Font] = None
     alignment: Optional[Alignment] = None
     fill: Optional[Fill] = None
     stroke: Optional[Stroke] = None
@@ -163,9 +191,20 @@ class Text(BaseModel):
     maxLength: Optional[int] = None
     minLength: Optional[int] = None
 
+    @model_validator(mode="after")
+    def validate_schema_bounds(self):
+        _validate_min_max(
+            self.minLength,
+            self.maxLength,
+            min_name="minLength",
+            max_name="maxLength",
+        )
+        return self
 
-class RichText(BaseModel):
+
+class RichText(BaseModel):  # Konva Markdown
     type: Literal["rich-text"]
+    fixed: bool
     position: Optional[Position] = None
     size: Optional[Size] = None
     rotation: Optional[float] = None
@@ -180,9 +219,20 @@ class RichText(BaseModel):
     maxLength: Optional[int] = None
     minLength: Optional[int] = None
 
+    @model_validator(mode="after")
+    def validate_schema_bounds(self):
+        _validate_min_max(
+            self.minLength,
+            self.maxLength,
+            min_name="minLength",
+            max_name="maxLength",
+        )
+        return self
 
-class Container(BaseModel):
+
+class Container(BaseModel):  # Konva Group
     type: Literal["container"]
+    fixed: bool
     position: Optional[Position] = None
     size: Optional[Size] = None
     rotation: Optional[float] = None
@@ -195,19 +245,22 @@ class Container(BaseModel):
     child: Optional[SlideElement] = None
 
 
-class Image(BaseModel):
+class Image(BaseModel):  # Konva Image
     type: Literal["image"]
+    fixed: bool
     position: Optional[Position] = None
     size: Optional[Size] = None
     rotation: Optional[float] = None
     data: Optional[str] = None
     name: Optional[str] = None
     fit: Optional[ImageFit] = None
+    borderRadius: Optional[BorderRadius] = None
     is_icon: Optional[bool] = None
 
 
 class List(BaseModel):
     type: Literal["list"]
+    fixed: bool
     position: Optional[Position] = None
     size: Optional[Size] = None
     rotation: Optional[float] = None
@@ -221,6 +274,22 @@ class List(BaseModel):
     maxItemLength: Optional[int] = None
     minItemLength: Optional[int] = None
 
+    @model_validator(mode="after")
+    def validate_schema_bounds(self):
+        _validate_min_max(
+            self.minItems,
+            self.maxItems,
+            min_name="minItems",
+            max_name="maxItems",
+        )
+        _validate_min_max(
+            self.minItemLength,
+            self.maxItemLength,
+            min_name="minItemLength",
+            max_name="maxItemLength",
+        )
+        return self
+
 
 class TableCell(BaseModel):
     fill: Optional[Fill] = None
@@ -231,9 +300,20 @@ class TableCell(BaseModel):
     maxLength: Optional[int] = None
     minLength: Optional[int] = None
 
+    @model_validator(mode="after")
+    def validate_schema_bounds(self):
+        _validate_min_max(
+            self.minLength,
+            self.maxLength,
+            min_name="minLength",
+            max_name="maxLength",
+        )
+        return self
+
 
 class Table(BaseModel):
     type: Literal["table"]
+    fixed: bool
     position: Optional[Position] = None
     size: Optional[Size] = None
     rotation: Optional[float] = None
@@ -246,9 +326,26 @@ class Table(BaseModel):
     maxRows: Optional[int] = None
     minRows: Optional[int] = None
 
+    @model_validator(mode="after")
+    def validate_schema_bounds(self):
+        _validate_min_max(
+            self.minColumns,
+            self.maxColumns,
+            min_name="minColumns",
+            max_name="maxColumns",
+        )
+        _validate_min_max(
+            self.minRows,
+            self.maxRows,
+            min_name="minRows",
+            max_name="maxRows",
+        )
+        return self
+
 
 class Rectangle(BaseModel):
     type: Literal["rectangle"]
+    fixed: bool
     position: Optional[Position] = None
     size: Optional[Size] = None
     rotation: Optional[float] = None
@@ -260,6 +357,7 @@ class Rectangle(BaseModel):
 
 class Ellipse(BaseModel):
     type: Literal["ellipse"]
+    fixed: bool
     position: Optional[Position] = None
     size: Optional[Size] = None
     rotation: Optional[float] = None
@@ -270,6 +368,7 @@ class Ellipse(BaseModel):
 
 class Line(BaseModel):
     type: Literal["line"]
+    fixed: bool
     position: Optional[Position] = None
     size: Optional[Size] = None
     rotation: Optional[float] = None
@@ -279,6 +378,7 @@ class Line(BaseModel):
 
 class Chart(BaseModel):
     type: Literal["chart"]
+    fixed: bool
     position: Optional[Position] = None
     size: Optional[Size] = None
     rotation: Optional[float] = None
@@ -293,6 +393,7 @@ class Chart(BaseModel):
 
 class Flex(BaseModel):
     type: Literal["flex"]
+    fixed: bool
     position: Position
     size: Size
     rotation: Optional[float] = None
@@ -309,9 +410,20 @@ class Flex(BaseModel):
     maxChildren: Optional[int] = None
     minChildren: Optional[int] = None
 
+    @model_validator(mode="after")
+    def validate_schema_bounds(self):
+        _validate_min_max(
+            self.minChildren,
+            self.maxChildren,
+            min_name="minChildren",
+            max_name="maxChildren",
+        )
+        return self
+
 
 class Grid(BaseModel):
     type: Literal["grid"]
+    fixed: bool
     position: Position
     size: Size
     rotation: Optional[float] = None
@@ -328,9 +440,97 @@ class Grid(BaseModel):
     maxChildren: Optional[int] = None
     minChildren: Optional[int] = None
 
+    @model_validator(mode="after")
+    def validate_schema_bounds(self):
+        _validate_min_max(
+            self.minChildren,
+            self.maxChildren,
+            min_name="minChildren",
+            max_name="maxChildren",
+        )
+        return self
+
+
+class ListView(BaseModel):
+    type: Literal["list-view"]
+    fixed: bool
+    position: Optional[Position] = None
+    size: Optional[Size] = None
+    rotation: Optional[float] = None
+    direction: Optional[FlexDirection] = None
+    gap: Optional[float] = None
+    columnGap: Optional[float] = None
+    rowGap: Optional[float] = None
+    alignItems: Optional[LayoutAlignment] = None
+    justifyContent: Optional[LayoutAlignment] = None
+    count: int
+    item: SlideElement
+
+    # Schema
+    maxCount: Optional[int] = None
+    minCount: Optional[int] = None
+
+    @model_validator(mode="after")
+    def validate_schema_bounds(self):
+        _validate_min_max(
+            self.minCount,
+            self.maxCount,
+            min_name="minCount",
+            max_name="maxCount",
+        )
+        _validate_value_bounds(
+            self.count,
+            self.minCount,
+            self.maxCount,
+            value_name="count",
+            min_name="minCount",
+            max_name="maxCount",
+        )
+        return self
+
+
+class GridView(BaseModel):
+    type: Literal["grid-view"]
+    fixed: bool
+    position: Optional[Position] = None
+    size: Optional[Size] = None
+    rotation: Optional[float] = None
+    columns: int
+    rows: Optional[int] = None
+    gap: Optional[float] = None
+    columnGap: Optional[float] = None
+    rowGap: Optional[float] = None
+    alignItems: Optional[LayoutAlignment] = None
+    justifyItems: Optional[LayoutAlignment] = None
+    count: int
+    item: SlideElement
+
+    # Schema
+    maxCount: Optional[int] = None
+    minCount: Optional[int] = None
+
+    @model_validator(mode="after")
+    def validate_schema_bounds(self):
+        _validate_min_max(
+            self.minCount,
+            self.maxCount,
+            min_name="minCount",
+            max_name="maxCount",
+        )
+        _validate_value_bounds(
+            self.count,
+            self.minCount,
+            self.maxCount,
+            value_name="count",
+            min_name="minCount",
+            max_name="maxCount",
+        )
+        return self
+
 
 class Stack(BaseModel):
     type: Literal["stack"]
+    fixed: bool
     position: Position
     size: Size
     rotation: Optional[float] = None
@@ -339,6 +539,16 @@ class Stack(BaseModel):
     # Schema
     maxChildren: Optional[int] = None
     minChildren: Optional[int] = None
+
+    @model_validator(mode="after")
+    def validate_schema_bounds(self):
+        _validate_min_max(
+            self.minChildren,
+            self.maxChildren,
+            min_name="minChildren",
+            max_name="maxChildren",
+        )
+        return self
 
 
 SlideElement: TypeAlias = Annotated[
@@ -355,13 +565,15 @@ SlideElement: TypeAlias = Annotated[
         Chart,
         Flex,
         Grid,
+        ListView,
+        GridView,
         Stack,
     ],
     Field(discriminator="type"),
 ]
 
 
-for _model in (Container, Flex, Grid, Stack):
+for _model in (Container, Flex, Grid, ListView, GridView, Stack):
     _model.model_rebuild()
 
 
@@ -384,6 +596,7 @@ __all__ = [
     "LayoutAlignment",
     "Line",
     "List",
+    "ListView",
     "ListItem",
     "Marker",
     "Padding",
@@ -403,4 +616,5 @@ __all__ = [
     "TextListItem",
     "TextWrap",
     "VerticalAlignment",
+    "GridView",
 ]

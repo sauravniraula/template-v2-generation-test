@@ -36,9 +36,9 @@ export interface Alignment {
 }
 
 export interface Font {
-  family: string;
-  size: number;
-  color: string;
+  family?: Nullable<string>;
+  size?: Nullable<number>;
+  color?: Nullable<string>;
   bold?: Nullable<boolean>;
   italic?: Nullable<boolean>;
   lineHeight?: Nullable<number>;
@@ -99,10 +99,11 @@ export type ListItem = TextListItem | RichTextListItem;
 
 export interface TextElement {
   type: "text";
+  fixed?: Nullable<boolean>;
   position?: Nullable<Position>;
   size?: Nullable<Size>;
   rotation?: Nullable<number>;
-  font: Font;
+  font?: Nullable<Font>;
   alignment?: Nullable<Alignment>;
   fill?: Nullable<Fill>;
   stroke?: Nullable<Stroke>;
@@ -116,6 +117,7 @@ export interface TextElement {
 
 export interface RichTextElement {
   type: "rich-text";
+  fixed?: Nullable<boolean>;
   position?: Nullable<Position>;
   size?: Nullable<Size>;
   rotation?: Nullable<number>;
@@ -133,6 +135,7 @@ export interface RichTextElement {
 
 export interface ContainerElement {
   type: "container";
+  fixed?: Nullable<boolean>;
   position?: Nullable<Position>;
   size?: Nullable<Size>;
   rotation?: Nullable<number>;
@@ -147,17 +150,20 @@ export interface ContainerElement {
 
 export interface ImageElement {
   type: "image";
+  fixed?: Nullable<boolean>;
   position?: Nullable<Position>;
   size?: Nullable<Size>;
   rotation?: Nullable<number>;
   data?: Nullable<string>;
   name?: Nullable<string>;
   fit?: Nullable<ImageFit>;
+  borderRadius?: Nullable<BorderRadius>;
   is_icon?: Nullable<boolean>;
 }
 
 export interface ListElement {
   type: "list";
+  fixed?: Nullable<boolean>;
   position?: Nullable<Position>;
   size?: Nullable<Size>;
   rotation?: Nullable<number>;
@@ -184,6 +190,7 @@ export interface TableCell {
 
 export interface TableElement {
   type: "table";
+  fixed?: Nullable<boolean>;
   position?: Nullable<Position>;
   size?: Nullable<Size>;
   rotation?: Nullable<number>;
@@ -199,6 +206,7 @@ export interface TableElement {
 
 export interface RectangleElement {
   type: "rectangle";
+  fixed?: Nullable<boolean>;
   position?: Nullable<Position>;
   size?: Nullable<Size>;
   rotation?: Nullable<number>;
@@ -210,6 +218,7 @@ export interface RectangleElement {
 
 export interface EllipseElement {
   type: "ellipse";
+  fixed?: Nullable<boolean>;
   position?: Nullable<Position>;
   size?: Nullable<Size>;
   rotation?: Nullable<number>;
@@ -220,6 +229,7 @@ export interface EllipseElement {
 
 export interface LineElement {
   type: "line";
+  fixed?: Nullable<boolean>;
   position?: Nullable<Position>;
   size?: Nullable<Size>;
   rotation?: Nullable<number>;
@@ -229,6 +239,7 @@ export interface LineElement {
 
 export interface ChartElement {
   type: "chart";
+  fixed?: Nullable<boolean>;
   position?: Nullable<Position>;
   size?: Nullable<Size>;
   rotation?: Nullable<number>;
@@ -243,6 +254,7 @@ export interface ChartElement {
 
 export interface FlexElement {
   type: "flex";
+  fixed?: Nullable<boolean>;
   position: Position;
   size: Size;
   rotation?: Nullable<number>;
@@ -262,6 +274,7 @@ export interface FlexElement {
 
 export interface GridElement {
   type: "grid";
+  fixed?: Nullable<boolean>;
   position: Position;
   size: Size;
   rotation?: Nullable<number>;
@@ -279,8 +292,50 @@ export interface GridElement {
   minChildren?: Nullable<number>;
 }
 
+export interface ListViewElement {
+  type: "list-view";
+  fixed?: Nullable<boolean>;
+  position?: Nullable<Position>;
+  size?: Nullable<Size>;
+  rotation?: Nullable<number>;
+  direction?: Nullable<FlexDirection>;
+  gap?: Nullable<number>;
+  columnGap?: Nullable<number>;
+  rowGap?: Nullable<number>;
+  alignItems?: Nullable<LayoutAlignment>;
+  justifyContent?: Nullable<LayoutAlignment>;
+  count: number;
+  item: SlideElement;
+
+  // Schema
+  maxCount?: Nullable<number>;
+  minCount?: Nullable<number>;
+}
+
+export interface GridViewElement {
+  type: "grid-view";
+  fixed?: Nullable<boolean>;
+  position?: Nullable<Position>;
+  size?: Nullable<Size>;
+  rotation?: Nullable<number>;
+  columns: number;
+  rows?: Nullable<number>;
+  gap?: Nullable<number>;
+  columnGap?: Nullable<number>;
+  rowGap?: Nullable<number>;
+  alignItems?: Nullable<LayoutAlignment>;
+  justifyItems?: Nullable<LayoutAlignment>;
+  count: number;
+  item: SlideElement;
+
+  // Schema
+  maxCount?: Nullable<number>;
+  minCount?: Nullable<number>;
+}
+
 export interface StackElement {
   type: "stack";
+  fixed?: Nullable<boolean>;
   position: Position;
   size: Size;
   rotation?: Nullable<number>;
@@ -304,4 +359,6 @@ export type SlideElement =
   | ChartElement
   | FlexElement
   | GridElement
+  | ListViewElement
+  | GridViewElement
   | StackElement;

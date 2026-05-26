@@ -20,10 +20,13 @@ import type { SlideLayout } from "@/types/layout";
 
 const DEFAULT_SLIDE_WIDTH = 1280;
 const DEFAULT_SLIDE_HEIGHT = 720;
+const DEFAULT_FONT_FAMILY = "Arial";
+const DEFAULT_FONT_SIZE = 16;
+const DEFAULT_FONT_COLOR = "111111";
 const DEFAULT_FONT: Font = {
-  family: "Arial",
-  size: 16,
-  color: "111111",
+  family: DEFAULT_FONT_FAMILY,
+  size: DEFAULT_FONT_SIZE,
+  color: DEFAULT_FONT_COLOR,
 };
 
 type RenderMode = "absolute" | "flow";
@@ -158,12 +161,16 @@ function renderElement(
       return renderTextElement(element, key, mode);
     case "rich-text":
       return renderRichTextElement(element, key, mode);
-    case "container":
+    case "container": {
+      const childMode =
+        element.child && hasExplicitFrame(element.child) ? "absolute" : "flow";
+
       return (
         <div
           key={key}
           style={{
             ...frameStyle(element, mode),
+            ...(childMode === "flow" ? containerFlowStyle(element.alignment) : {}),
             ...fillStyle(element.fill),
             ...borderStyle(element.stroke),
             ...borderRadiusStyle(element.borderRadius),
@@ -172,10 +179,11 @@ function renderElement(
           }}
         >
           {element.child
-            ? renderElement(element.child, `${key}-child`, "absolute", options)
+            ? renderElement(element.child, `${key}-child`, childMode, options)
             : null}
         </div>
       );
+    }
     case "image":
       return renderImageElement(element, key, mode, options);
     case "list":
@@ -221,11 +229,13 @@ function renderElement(
             display: "flex",
             flexDirection: element.direction,
             flexWrap: element.wrap ? "wrap" : "nowrap",
-            alignItems: element.alignItems ?? undefined,
+            alignItems: element.alignItems ?? "stretch",
             justifyContent: element.justifyContent ?? undefined,
             gap: element.gap ?? undefined,
             columnGap: element.columnGap ?? undefined,
             rowGap: element.rowGap ?? undefined,
+            minWidth: 0,
+            minHeight: 0,
           }}
         >
           {element.children.map((child, index) =>
@@ -233,22 +243,29 @@ function renderElement(
           )}
         </div>
       );
-    case "grid":
+    case "grid": {
+      const columnCount = Math.max(element.columns, 1);
+      const rowCount = Math.max(
+        element.rows ?? 0,
+        Math.ceil(element.children.length / columnCount),
+        1,
+      );
+
       return (
         <div
           key={key}
           style={{
             ...frameStyle(element, mode),
             display: "grid",
-            gridTemplateColumns: `repeat(${element.columns}, minmax(0, 1fr))`,
-            gridTemplateRows: element.rows
-              ? `repeat(${element.rows}, minmax(0, 1fr))`
-              : undefined,
-            alignItems: element.alignItems ?? undefined,
-            justifyItems: element.justifyItems ?? undefined,
+            gridTemplateColumns: `repeat(${columnCount}, minmax(0, 1fr))`,
+            gridTemplateRows: `repeat(${rowCount}, minmax(0, 1fr))`,
+            alignItems: element.alignItems ?? "stretch",
+            justifyItems: element.justifyItems ?? "stretch",
             gap: element.gap ?? undefined,
             columnGap: element.columnGap ?? undefined,
             rowGap: element.rowGap ?? undefined,
+            minWidth: 0,
+            minHeight: 0,
           }}
         >
           {element.children.map((child, index) =>
@@ -256,6 +273,61 @@ function renderElement(
           )}
         </div>
       );
+    }
+    case "list-view":
+      return (
+        <div
+          key={key}
+          style={{
+            ...frameStyle(element, mode),
+            display: "flex",
+            flexDirection: element.direction ?? "column",
+            alignItems: element.alignItems ?? "stretch",
+            justifyContent: element.justifyContent ?? undefined,
+            gap: element.gap ?? undefined,
+            columnGap: element.columnGap ?? undefined,
+            rowGap: element.rowGap ?? undefined,
+            minWidth: 0,
+            minHeight: 0,
+          }}
+        >
+          {repeatCount(element.count).map((index) =>
+            renderElement(element.item, `${key}-item-${index}`, "flow", options),
+          )}
+        </div>
+      );
+    case "grid-view": {
+      const columnCount = Math.max(element.columns, 1);
+      const count = Math.max(element.count, 0);
+      const rowCount = Math.max(
+        element.rows ?? 0,
+        Math.ceil(count / columnCount),
+        1,
+      );
+
+      return (
+        <div
+          key={key}
+          style={{
+            ...frameStyle(element, mode),
+            display: "grid",
+            gridTemplateColumns: `repeat(${columnCount}, minmax(0, 1fr))`,
+            gridTemplateRows: `repeat(${rowCount}, minmax(0, 1fr))`,
+            alignItems: element.alignItems ?? "stretch",
+            justifyItems: element.justifyItems ?? "stretch",
+            gap: element.gap ?? undefined,
+            columnGap: element.columnGap ?? undefined,
+            rowGap: element.rowGap ?? undefined,
+            minWidth: 0,
+            minHeight: 0,
+          }}
+        >
+          {repeatCount(count).map((index) =>
+            renderElement(element.item, `${key}-item-${index}`, "flow", options),
+          )}
+        </div>
+      );
+    }
     case "stack":
       return (
         <div
@@ -277,17 +349,19 @@ function renderTextElement(
   key: string,
   mode: RenderMode,
 ) {
+  const font = element.font ?? DEFAULT_FONT;
+
   return (
     <div
       key={key}
       style={{
-        ...textFrameStyle(element, mode, element.font, element.alignment),
+        ...textFrameStyle(element, mode, font, element.alignment),
         ...fillStyle(element.fill),
         ...textStrokeStyle(element.stroke),
         ...textShadowStyle(element.shadow),
       }}
     >
-      {element.text ?? ""}
+      {element.text ?? textPlaceholder(font, element.minLength, element.maxLength)}
     </div>
   );
 }
@@ -309,7 +383,9 @@ function renderRichTextElement(
         ...textShadowStyle(element.shadow),
       }}
     >
-      {renderRichTextRuns(element.runs, baseFont)}
+      {element.runs?.length
+        ? renderRichTextRuns(element.runs, baseFont)
+        : textPlaceholder(baseFont, element.minLength, element.maxLength)}
     </div>
   );
 }
@@ -325,7 +401,16 @@ function renderImageElement(
 
   if (!src) {
     if (!options.showMissingImageMarkers) {
-      return <div key={key} style={style} />;
+      return (
+        <div
+          key={key}
+          style={{
+            ...style,
+            ...borderRadiusStyle(element.borderRadius),
+            overflow: "hidden",
+          }}
+        />
+      );
     }
 
     return (
@@ -336,9 +421,11 @@ function renderImageElement(
           display: "grid",
           placeItems: "center",
           border: "2px solid #94a3b8",
+          ...borderRadiusStyle(element.borderRadius),
           color: "#475569",
           font: "12px Arial, sans-serif",
           background: "rgba(241, 245, 249, 0.75)",
+          overflow: "hidden",
         }}
       >
         <span
@@ -365,6 +452,8 @@ function renderImageElement(
       alt={element.name ?? ""}
       style={{
         ...style,
+        display: "block",
+        ...borderRadiusStyle(element.borderRadius),
         objectFit: element.fit ?? "contain",
       }}
     />
@@ -378,6 +467,7 @@ function renderListElement(
 ) {
   const Tag = element.marker === "number" ? "ol" : "ul";
   const font = element.font ?? DEFAULT_FONT;
+  const fontSize = font.size ?? DEFAULT_FONT_SIZE;
 
   return (
     <Tag
@@ -392,7 +482,7 @@ function renderListElement(
               ? "decimal"
               : "disc",
         margin: 0,
-        paddingLeft: element.marker === "none" ? 0 : font.size * 1.4,
+        paddingLeft: element.marker === "none" ? 0 : fontSize * 1.4,
       }}
     >
       {(element.items ?? []).map((item, index) => (
@@ -409,6 +499,7 @@ function renderTableElement(
 ) {
   const rows = [element.columns, ...element.rows];
   const columnCount = Math.max(...rows.map((row) => row.length), 1);
+  const rowCount = Math.max(rows.length, 1);
 
   return (
     <div
@@ -417,6 +508,7 @@ function renderTableElement(
         ...frameStyle(element, mode),
         display: "grid",
         gridTemplateColumns: `repeat(${columnCount}, minmax(0, 1fr))`,
+        gridTemplateRows: `repeat(${rowCount}, minmax(0, 1fr))`,
         overflow: "hidden",
       }}
     >
@@ -425,15 +517,18 @@ function renderTableElement(
           <div
             key={`${key}-cell-${rowIndex}-${cellIndex}`}
             style={{
-              minHeight: 32,
+              boxSizing: "border-box",
+              minWidth: 0,
+              minHeight: 0,
               padding: 8,
               display: "flex",
               alignItems: "center",
+              overflow: "hidden",
               ...fillStyle(cell.fill),
               ...borderStyle(cell.stroke ?? { color: "dddddd", width: 1 }),
             }}
           >
-            {cell.text ?? ""}
+            {cell.text ?? textPlaceholder(DEFAULT_FONT, cell.minLength, cell.maxLength)}
           </div>
         )),
       )}
@@ -601,9 +696,31 @@ function renderRichTextRuns(
   ));
 }
 
+function repeatCount(count: number) {
+  return Array.from({ length: Math.max(0, Math.floor(count)) }, (_, index) => index);
+}
+
+function textPlaceholder(
+  font: Font,
+  minLength?: number | null,
+  maxLength?: number | null,
+) {
+  if ((font.size ?? DEFAULT_FONT_SIZE) >= 32) {
+    return "Sample heading";
+  }
+
+  if ((minLength ?? 0) >= 40 || (maxLength ?? 0) >= 160) {
+    return "Sample body copy showing where generated text will appear in this layout.";
+  }
+
+  return "Sample text";
+}
+
 function frameStyle(element: FrameElement, mode: RenderMode): CSSProperties {
   const style: CSSProperties = {
     boxSizing: "border-box",
+    minWidth: 0,
+    minHeight: 0,
   };
 
   if (mode === "absolute") {
@@ -612,7 +729,13 @@ function frameStyle(element: FrameElement, mode: RenderMode): CSSProperties {
     style.top = element.position?.y ?? 0;
   } else {
     style.position = "relative";
-    style.flex = element.size ? "0 0 auto" : undefined;
+    style.flex = element.size ? "0 0 auto" : "1 1 0";
+    style.alignSelf = "stretch";
+
+    if (!element.size) {
+      style.width = "100%";
+      style.height = "100%";
+    }
   }
 
   if (element.size) {
@@ -626,6 +749,20 @@ function frameStyle(element: FrameElement, mode: RenderMode): CSSProperties {
   }
 
   return style;
+}
+
+function hasExplicitFrame(element: SlideElement) {
+  return element.position != null || element.size != null;
+}
+
+function containerFlowStyle(alignment?: Alignment | null): CSSProperties {
+  return {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: verticalAlignment(alignment),
+    alignItems: horizontalAlignment(alignment),
+    overflow: "hidden",
+  };
 }
 
 function textFrameStyle(
@@ -654,9 +791,9 @@ function textFrameStyle(
 
 function fontStyle(font: Font): CSSProperties {
   return {
-    fontFamily: font.family,
-    fontSize: font.size,
-    color: cssColor(font.color) ?? undefined,
+    fontFamily: font.family ?? DEFAULT_FONT_FAMILY,
+    fontSize: font.size ?? DEFAULT_FONT_SIZE,
+    color: cssColor(font.color ?? DEFAULT_FONT_COLOR) ?? undefined,
     fontWeight: font.bold ? 700 : 400,
     fontStyle: font.italic ? "italic" : "normal",
     lineHeight: font.lineHeight ? `${font.lineHeight}px` : undefined,
@@ -667,8 +804,7 @@ function fontStyle(font: Font): CSSProperties {
 
 function fillStyle(fill?: Fill | null): CSSProperties {
   return {
-    backgroundColor: cssColor(fill?.color),
-    opacity: fill?.opacity ?? undefined,
+    backgroundColor: colorWithOpacity(fill?.color, fill?.opacity),
   };
 }
 
@@ -679,7 +815,7 @@ function borderStyle(stroke?: Stroke | null): CSSProperties {
 
   return {
     border: `${stroke.width}px ${stroke.dash?.length ? "dashed" : "solid"} ${
-      cssColor(stroke.color) ?? "black"
+      colorWithOpacity(stroke.color, stroke.opacity) ?? "black"
     }`,
   };
 }
@@ -690,7 +826,9 @@ function textStrokeStyle(stroke?: Stroke | null): CSSProperties {
   }
 
   return {
-    WebkitTextStroke: `${stroke.width}px ${cssColor(stroke.color) ?? "black"}`,
+    WebkitTextStroke: `${stroke.width}px ${
+      colorWithOpacity(stroke.color, stroke.opacity) ?? "black"
+    }`,
   };
 }
 
@@ -721,7 +859,9 @@ function shadowCss(shadow?: Shadow | null) {
     return undefined;
   }
 
-  const color = cssColor(shadow.color) ?? "rgba(0, 0, 0, 0.25)";
+  const color =
+    colorWithOpacity(shadow.color ?? "000000", shadow.opacity ?? 0.25) ??
+    "rgba(0, 0, 0, 0.25)";
 
   return `${shadow.offsetX ?? 0}px ${shadow.offsetY ?? 0}px ${
     shadow.blur ?? 0
@@ -770,6 +910,10 @@ function imageSource(data?: string | null) {
     return undefined;
   }
 
+  if (isLocalFilePath(data)) {
+    return undefined;
+  }
+
   if (
     data.startsWith("data:") ||
     data.startsWith("/") ||
@@ -782,6 +926,14 @@ function imageSource(data?: string | null) {
   return `data:image/png;base64,${data}`;
 }
 
+function isLocalFilePath(data: string) {
+  return (
+    data.startsWith("file://") ||
+    /^[a-zA-Z]:[\\/]/.test(data) ||
+    /^\/(?:home|Users|tmp|private|var|mnt|opt)\//.test(data)
+  );
+}
+
 function cssColor(color?: string | null) {
   if (!color) {
     return undefined;
@@ -792,4 +944,79 @@ function cssColor(color?: string | null) {
   }
 
   return color;
+}
+
+function colorWithOpacity(color?: string | null, opacity?: number | null) {
+  const normalizedColor = cssColor(color);
+
+  if (!normalizedColor) {
+    return undefined;
+  }
+
+  if (opacity == null) {
+    return normalizedColor;
+  }
+
+  const alpha = clampOpacity(opacity);
+  const rgba = hexToRgba(normalizedColor, alpha);
+
+  if (rgba) {
+    return rgba;
+  }
+
+  const rgb = normalizedColor.match(
+    /^rgb\(\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)\s*\)$/i,
+  );
+
+  if (rgb) {
+    return `rgba(${rgb[1]}, ${rgb[2]}, ${rgb[3]}, ${alpha})`;
+  }
+
+  const rgbaMatch = normalizedColor.match(
+    /^rgba\(\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)\s*\)$/i,
+  );
+
+  if (rgbaMatch) {
+    const intrinsicAlpha = clampOpacity(Number.parseFloat(rgbaMatch[4]));
+
+    return `rgba(${rgbaMatch[1]}, ${rgbaMatch[2]}, ${rgbaMatch[3]}, ${clampOpacity(
+      intrinsicAlpha * alpha,
+    )})`;
+  }
+
+  if (alpha === 1) {
+    return normalizedColor;
+  }
+
+  return `color-mix(in srgb, ${normalizedColor} ${alpha * 100}%, transparent)`;
+}
+
+function hexToRgba(color: string, opacity: number) {
+  const match = color.match(/^#([0-9a-fA-F]{3,8})$/);
+
+  if (!match) {
+    return undefined;
+  }
+
+  let hex = match[1];
+
+  if (hex.length === 3 || hex.length === 4) {
+    hex = hex
+      .split("")
+      .map((character) => character + character)
+      .join("");
+  }
+
+  const r = Number.parseInt(hex.slice(0, 2), 16);
+  const g = Number.parseInt(hex.slice(2, 4), 16);
+  const b = Number.parseInt(hex.slice(4, 6), 16);
+  const intrinsicAlpha =
+    hex.length === 8 ? Number.parseInt(hex.slice(6, 8), 16) / 255 : 1;
+  const alpha = clampOpacity(opacity * intrinsicAlpha);
+
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+function clampOpacity(opacity: number) {
+  return Math.max(0, Math.min(opacity, 1));
 }

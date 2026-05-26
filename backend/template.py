@@ -1,12 +1,13 @@
 import json
 import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from json import JSONDecodeError
 from typing import Any
 
 from llmai import (
-    OpenAIApiType,
     OpenAIClient,
-    OpenAIClientConfig,
+    OpenRouterClient,
+    OpenRouterClientConfig,
     ReasoningEffort,
     ReasoningEffortValue,
 )
@@ -14,123 +15,136 @@ from llmai.shared.messages import AssistantMessage, SystemMessage, UserMessage
 from llmai.shared.response_formats import TextResponse
 from pydantic import BaseModel, ValidationError
 
-from llm_models import SlideComponents, SlideLayouts
+from layout_normalizer import normalize_slide_layouts
+from llm_models import SlideLayout, SlideLayouts
 from settings import SETTINGS
 
-DEFAULT_MODEL = "gemini-3.5-flash"
+DEFAULT_MODEL = "z-ai/glm-4.7"
 DEFAULT_REASONING_EFFORT = ReasoningEffort(effort=ReasoningEffortValue.HIGH)
 DEFAULT_VALIDATION_RETRIES = 3
-
-GENERATE_SLIDE_COMPONENTS_PROMPT = """
-Create reusable slide components from the the given slides with the shapes.
-
-# Steps
-1. Go through shapes present in all the slides.
-2. Identify how each shapes are used in the slide.
-3. Organize the shapes present in each slide into logical groups like `promption_card`, `title_description', 'contact_info', etc.
-4. Now find the similar structured groups across slides to create slide components.
-5. For each group of shapes create a slide component.
-6. Check if enough slide components are created to cover all the slides and those components can be reused to create those slides.
-
-# Slide Component Rules
-- Position of each element in a component should be relative to the component position.
-- Position and Size of each component should be average position and size across all the slides.
-- If there is list of items/cards, the component should be the full list not just a single item because they are related and should be treated as a single unit.
-- Component should contain all items present in the slides. For example, for list of items, it should contain all the items present in the slides, not just a single item.
-- Don't create components with elements that are not related to each other.
-- Make sure the generated component library is complete enough to recreate every original slide.
-- Do not stop until every visible slide element belongs to at least one reusable or slide-specific component.
-- If a visible slide element cannot fit an existing reusable component, create an additional component for that element or group so the original slide can still be reconstructed from components.
-
-# Output Rules
-- Return raw JSON only. Do not include markdown fences, comments, explanations, or any text before or after the JSON object.
-"""
-
-
-def generate_slide_components(
-    presentation: dict,
-    validation_retries: int = DEFAULT_VALIDATION_RETRIES,
-    retry_loop: bool = True,
-    response_file: str | None = None,
-):
-
-    client = _create_google_client()
-
-    slide_count = len(presentation.get("slides", []))
-    print(
-        f"LLM: preparing to generate slide components from {slide_count} slides.",
-        flush=True,
-    )
-    user_message = f"- Presentation:\n{presentation}"
-    messages = [
-        SystemMessage(content=GENERATE_SLIDE_COMPONENTS_PROMPT),
-        UserMessage(content=user_message),
-    ]
-
-    return _generate_with_validation_retries(
-        client=client,
-        model=DEFAULT_MODEL,
-        messages=messages,
-        label="slide components",
-        output_model=SlideComponents,
-        validation_retries=validation_retries,
-        retry_loop=retry_loop,
-        response_file=response_file,
-    )
-
+OPENROUTER_PROVIDER_ORDER = ("cerebras/fp16", "google-vertex")
 
 GENERATE_SLIDE_LAYOUTS_PROMPT = """
-Create slide layout for each slide using the available slide components.
+Create slide layout from the provided shape objects.
+The user prompt contains one slide number and all shape objects from that slide.
 
 # Steps
-1. Go through each slide and identify the shapes present in it.
-2. Go through available components and find the ones that match the shapes present in the slide.
-3. Create a layout for each slide using the matching components.
+1. Review all shapes in the slide.
+2. Group related shapes into slide components.
+3. Convert each group into SlideComponent objects.
+4. Return exactly one SlideLayout.
 
 # Slide Layout Rules
-- Must only use the available slide components to create a layout.
-- Slide layout must be 1280x720.
+- Use a 1280x720 slide coordinate system.
+- Layout `id` must be a concise lower_snake_case name.
+- The layout must include all the visible components present in the slide.
+- Preserve the visual stacking order of the original slide.
 
 # Slide Component Rules
-- Modify the position and size of component to create a layout that matches the slide.
+- `SlideComponent.position` and `SlideComponent.size` must be in slide coordinates.
+- `SlideComponent.position` must be the top-left of the tight bounding box occupied by that component in slide space.
+- `SlideComponent.size` must be the tight total space occupied by the component's elements.
+- Every element inside a component must use positions relative to the component's top-left, so the minimum element x/y in each component should normally be 0/0.
+- Set `fixed: true` for static layout/decorative content that should stay unchanged when a new slide is generated from this layout.
+- Set `fixed: false` for replaceable content placeholders. These non-fixed fields will be included in the later LLM generation schema and replaced when generating a new slide.
+- Component `id` values must be concise lower_snake_case names.
+- Group only related shapes into the same component. Eg: `contact_info`, `product_list`, `timeline`, `title_description`, etc.
+- For related lists, cards, timelines, menus, grids, or repeated items, create one component for the full group.
+- Use `container`, `flex`, `grid`, and `stack` when they make positioning, resizing, or grouping clearer.
+- For repeated same-structure items, use `list-view` or `grid-view` with one representative `item` element and `count` rather than duplicating the same element many times.
+- Use `list-view` for repeated same-structure items in one row or column.
+- Use `grid-view` for repeated same-structure items arranged across multiple rows and columns.
+- Use `flex` or `grid` only when children are different elements or need distinct per-child content/positioning.
+- Preserve source content exactly: text strings, rich-text runs, list/table cell text, image names, image URLs/paths, and image data must match the input shapes without rewriting, summarizing, translating, or inventing replacements.
+- Provide schema fields wherever the element supports them:
+  - text/rich-text/table cells: `minLength` and `maxLength`
+  - list: `minItems`, `maxItems`, `minItemLength`, and `maxItemLength`
+  - table: `minColumns`, `maxColumns`, `minRows`, and `maxRows`
+  - flex/grid/stack: `minChildren` and `maxChildren`
+  - list-view/grid-view: `minCount` and `maxCount`
 
 # Output Rules
-- Return raw JSON only. Do not include markdown fences, comments, explanations, or any text before or after the JSON object.
+- Return raw JSON only matching the SlideLayout schema.
+- Do not include markdown fences, comments, explanations, or any text before or after the JSON object.
 """
 
 
 def generate_slide_layouts(
     presentation: dict,
-    components: dict[str, Any],
     validation_retries: int = DEFAULT_VALIDATION_RETRIES,
     retry_loop: bool = True,
     response_file: str | None = None,
 ):
-
-    client = _create_google_client()
-
-    slide_count = len(presentation.get("slides", []))
-    component_count = len(components.get("components", []))
+    slides = presentation.get("slides", [])
+    slide_count = len(slides)
     print(
-        f"LLM: preparing to generate layouts for {slide_count} slides using {component_count} components.",
+        f"LLM: preparing to generate slide layouts from {slide_count} slides.",
         flush=True,
     )
-    user_message = f"- Presentation:\n{presentation}\n\n- Available Slide Components:\n{components}"
-    messages = [
-        SystemMessage(content=GENERATE_SLIDE_LAYOUTS_PROMPT),
-        UserMessage(content=user_message),
+
+    layouts_by_slide: dict[int, dict[str, Any]] = {}
+    if slide_count:
+        with ThreadPoolExecutor(max_workers=slide_count) as executor:
+            futures = {
+                executor.submit(
+                    _generate_slide_layout_for_slide,
+                    slide_index=slide_index,
+                    slide=slide,
+                    slide_count=slide_count,
+                    validation_retries=validation_retries,
+                    retry_loop=retry_loop,
+                ): slide_index
+                for slide_index, slide in enumerate(slides, start=1)
+            }
+            for future in as_completed(futures):
+                slide_index = futures[future]
+                layouts_by_slide[slide_index] = future.result()
+
+    layouts = [
+        layouts_by_slide[slide_index] for slide_index in range(1, slide_count + 1)
     ]
 
-    return _generate_with_validation_retries(
-        client=client,
+    result = normalize_slide_layouts(
+        _validate_output_model(
+            {"layouts": layouts},
+            SlideLayouts,
+        )
+    )
+    _save_json_response(response_file, result)
+    return result
+
+
+def _generate_slide_layout_for_slide(
+    *,
+    slide_index: int,
+    slide: dict[str, Any],
+    slide_count: int,
+    validation_retries: int,
+    retry_loop: bool,
+) -> dict[str, Any]:
+    print(
+        f"LLM: generating slide layout for slide {slide_index}/{slide_count}.",
+        flush=True,
+    )
+    payload = {
+        "slide": slide_index,
+        "shapes": slide.get("shapes", []),
+    }
+    response = _generate_with_validation_retries(
+        client=_create_openrouter_client(),
         model=DEFAULT_MODEL,
-        messages=messages,
-        label="slide layouts",
-        output_model=SlideLayouts,
+        messages=[
+            SystemMessage(content=GENERATE_SLIDE_LAYOUTS_PROMPT),
+            UserMessage(content=json.dumps(payload, indent=2)),
+        ],
+        label=f"slide {slide_index} layout",
+        output_model=SlideLayout,
         validation_retries=validation_retries,
         retry_loop=retry_loop,
-        response_file=response_file,
+        response_file=None,
+        extra_body=_openrouter_extra_body(),
     )
+    return response
 
 
 def _generate_with_validation_retries(
@@ -143,6 +157,7 @@ def _generate_with_validation_retries(
     validation_retries: int,
     retry_loop: bool,
     response_file: str | None,
+    extra_body: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     if not retry_loop:
         return _generate_one_shot(
@@ -152,6 +167,7 @@ def _generate_with_validation_retries(
             label=label,
             output_model=output_model,
             response_file=response_file,
+            extra_body=extra_body,
         )
 
     last_error: Exception | None = None
@@ -168,7 +184,7 @@ def _generate_with_validation_retries(
                 model=model,
                 messages=messages,
                 response_format=TextResponse(),
-                reasoning_effort=DEFAULT_REASONING_EFFORT,
+                extra_body=extra_body,
             )
         except Exception as exc:
             last_error = exc
@@ -251,13 +267,14 @@ def _generate_one_shot(
     label: str,
     output_model: type[BaseModel],
     response_file: str | None,
+    extra_body: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     print(f"LLM: generating {label} once with {model}.", flush=True)
     response = client.generate(
         model=model,
         messages=messages,
         response_format=TextResponse(),
-        reasoning_effort=DEFAULT_REASONING_EFFORT,
+        extra_body=extra_body,
     )
     print(f"LLM: parsing one-shot {label} JSON.", flush=True)
     parsed = _parse_json_content(response.content)
@@ -309,14 +326,31 @@ def _save_raw_response(file_path: str | None, content: Any) -> None:
     print(f"LLM: saved raw response to {file_path}.", flush=True)
 
 
-def _create_google_client() -> OpenAIClient:
-    return OpenAIClient(
-        config=OpenAIClientConfig(
-            api_key=SETTINGS.google_api_key,
-            base_url=SETTINGS.google_openai_base_url,
-            api_type=OpenAIApiType.COMPLETIONS,
+def _create_openrouter_client() -> OpenAIClient:
+    if SETTINGS.openrouter_api_key is None:
+        raise ValueError("OPENROUTER_API_KEY is required for slide generation")
+
+    return OpenRouterClient(
+        config=OpenRouterClientConfig(
+            api_key=SETTINGS.openrouter_api_key,
+            base_url=SETTINGS.openrouter_base_url,
         )
     )
+
+
+def _openrouter_extra_body() -> dict[str, Any]:
+    provider_order = list(OPENROUTER_PROVIDER_ORDER)
+    return {
+        "provider": {
+            "order": provider_order,
+            "only": list(provider_order),
+            "allow_fallbacks": False,
+        },
+        "reasoning": {
+            "effort": DEFAULT_REASONING_EFFORT.effort.value,
+            "exclude": True,
+        },
+    }
 
 
 def _parse_json_content(content: Any) -> dict[str, Any]:

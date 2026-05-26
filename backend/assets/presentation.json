@@ -4,9 +4,13 @@
     {
       "shapes": [
         {
+          "id": 1,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "f9fafb", "opacity": 1 },
+          "fill": {
+            "color": "f9fafb",
+            "opacity": 1
+          },
           "shadow": {
             "radius": 2,
             "offset": 1,
@@ -14,12 +18,23 @@
             "opacity": 0.05,
             "angle": 90
           },
-          "position": { "left": 84, "top": 160, "width": 512, "height": 400 },
+          "position": {
+            "left": 84,
+            "top": 160,
+            "width": 512,
+            "height": 400
+          },
           "border_radius": 16
         },
         {
+          "id": 2,
           "shape_type": "picture",
-          "position": { "left": 84, "top": 160, "width": 512, "height": 400 },
+          "position": {
+            "left": 84,
+            "top": 160,
+            "width": 512,
+            "height": 400
+          },
           "source_position": {
             "left": 84,
             "top": 160,
@@ -29,15 +44,24 @@
           "clip": false,
           "invert": false,
           "opacity": 1,
-          "border_radius": [16, 16, 16, 16],
+          "border_radius": [
+            16,
+            16,
+            16,
+            16
+          ],
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/10235c87-374b-4de0-baaf-e08a24c206f4.png"
           }
         },
         {
+          "id": 3,
           "shape_type": "textbox",
           "position": {
             "left": 668,
@@ -73,9 +97,13 @@
           ]
         },
         {
+          "id": 4,
           "shape_type": "autoshape",
           "type": 1,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "position": {
             "left": 668,
             "top": 236.390625,
@@ -85,6 +113,7 @@
           "text_wrap": true
         },
         {
+          "id": 5,
           "shape_type": "textbox",
           "position": {
             "left": 668,
@@ -120,6 +149,7 @@
           ]
         },
         {
+          "id": 6,
           "shape_type": "picture",
           "position": {
             "left": 668,
@@ -136,6 +166,7 @@
           }
         },
         {
+          "id": 7,
           "shape_type": "textbox",
           "position": {
             "left": 696,
@@ -172,6 +203,7 @@
           ]
         },
         {
+          "id": 8,
           "shape_type": "textbox",
           "position": {
             "left": 696,
@@ -208,9 +240,13 @@
           ]
         },
         {
+          "id": 9,
           "shape_type": "autoshape",
           "type": 1,
-          "fill": { "color": "d1d5db", "opacity": 1 },
+          "fill": {
+            "color": "d1d5db",
+            "opacity": 1
+          },
           "position": {
             "left": 842.78125,
             "top": 571.390625,
@@ -220,6 +256,7 @@
           "text_wrap": true
         },
         {
+          "id": 10,
           "shape_type": "textbox",
           "position": {
             "left": 863.78125,
@@ -256,6 +293,7 @@
           ]
         },
         {
+          "id": 11,
           "shape_type": "picture",
           "position": {
             "left": 863.78125,
@@ -273,13 +311,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/calendar-x-bold.svg&stroke=9333EA"
           }
         },
         {
+          "id": 12,
           "shape_type": "textbox",
           "position": {
             "left": 883.78125,
@@ -315,6 +357,7 @@
           ]
         },
         {
+          "id": 13,
           "shape_type": "textbox",
           "position": {
             "left": 1218.515625,
@@ -350,13 +393,22 @@
           ]
         }
       ],
-      "background": { "color": "ffffff", "opacity": 1 }
+      "background": {
+        "color": "ffffff",
+        "opacity": 1
+      }
     },
     {
       "shapes": [
         {
+          "id": 14,
           "shape_type": "picture",
-          "position": { "left": 0, "top": 0, "width": 128, "height": 720 },
+          "position": {
+            "left": 0,
+            "top": 0,
+            "width": 128,
+            "height": 720
+          },
           "source_position": {
             "left": 0,
             "top": 0,
@@ -367,15 +419,24 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/49096c302cdaa44db5ff9286601a626a.png"
           }
         },
         {
+          "id": 15,
           "shape_type": "picture",
-          "position": { "left": 0, "top": 592, "width": 192, "height": 128 },
+          "position": {
+            "left": 0,
+            "top": 592,
+            "width": 192,
+            "height": 128
+          },
           "source_position": {
             "left": 0,
             "top": 592,
@@ -386,15 +447,24 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/057019908b84585c4b7c5174cfcecdfc.png"
           }
         },
         {
+          "id": 16,
           "shape_type": "textbox",
-          "position": { "left": 80, "top": 48, "width": 1122, "height": 75 },
+          "position": {
+            "left": 80,
+            "top": 48,
+            "width": 1122,
+            "height": 75
+          },
           "text_wrap": true,
           "paragraphs": [
             {
@@ -423,9 +493,13 @@
           ]
         },
         {
+          "id": 17,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "shadow": {
             "radius": 2,
             "offset": 1,
@@ -433,12 +507,23 @@
             "opacity": 0.05,
             "angle": 90
           },
-          "position": { "left": 80, "top": 212.25, "width": 56, "height": 56 },
+          "position": {
+            "left": 80,
+            "top": 212.25,
+            "width": 56,
+            "height": 56
+          },
           "border_radius": 12
         },
         {
+          "id": 18,
           "shape_type": "picture",
-          "position": { "left": 94, "top": 226.25, "width": 28, "height": 28 },
+          "position": {
+            "left": 94,
+            "top": 226.25,
+            "width": 28,
+            "height": 28
+          },
           "source_position": {
             "left": 94,
             "top": 226.25,
@@ -449,13 +534,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/pizza-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 19,
           "shape_type": "textbox",
           "position": {
             "left": 156,
@@ -491,9 +580,13 @@
           ]
         },
         {
+          "id": 20,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "shadow": {
             "radius": 2,
             "offset": 1,
@@ -501,12 +594,23 @@
             "opacity": 0.05,
             "angle": 90
           },
-          "position": { "left": 80, "top": 304.25, "width": 56, "height": 56 },
+          "position": {
+            "left": 80,
+            "top": 304.25,
+            "width": 56,
+            "height": 56
+          },
           "border_radius": 12
         },
         {
+          "id": 21,
           "shape_type": "picture",
-          "position": { "left": 94, "top": 318.25, "width": 28, "height": 28 },
+          "position": {
+            "left": 94,
+            "top": 318.25,
+            "width": 28,
+            "height": 28
+          },
           "source_position": {
             "left": 94,
             "top": 318.25,
@@ -517,13 +621,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/tea-bag-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 22,
           "shape_type": "textbox",
           "position": {
             "left": 156,
@@ -559,9 +667,13 @@
           ]
         },
         {
+          "id": 23,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "shadow": {
             "radius": 2,
             "offset": 1,
@@ -569,12 +681,23 @@
             "opacity": 0.05,
             "angle": 90
           },
-          "position": { "left": 80, "top": 398.5, "width": 56, "height": 56 },
+          "position": {
+            "left": 80,
+            "top": 398.5,
+            "width": 56,
+            "height": 56
+          },
           "border_radius": 12
         },
         {
+          "id": 24,
           "shape_type": "picture",
-          "position": { "left": 94, "top": 412.5, "width": 28, "height": 28 },
+          "position": {
+            "left": 94,
+            "top": 412.5,
+            "width": 28,
+            "height": 28
+          },
           "source_position": {
             "left": 94,
             "top": 412.5,
@@ -585,13 +708,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/globe-stand-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 25,
           "shape_type": "textbox",
           "position": {
             "left": 156,
@@ -627,9 +754,13 @@
           ]
         },
         {
+          "id": 26,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "shadow": {
             "radius": 2,
             "offset": 1,
@@ -637,12 +768,23 @@
             "opacity": 0.05,
             "angle": 90
           },
-          "position": { "left": 80, "top": 495, "width": 56, "height": 56 },
+          "position": {
+            "left": 80,
+            "top": 495,
+            "width": 56,
+            "height": 56
+          },
           "border_radius": 12
         },
         {
+          "id": 27,
           "shape_type": "picture",
-          "position": { "left": 94, "top": 509, "width": 28, "height": 28 },
+          "position": {
+            "left": 94,
+            "top": 509,
+            "width": 28,
+            "height": 28
+          },
           "source_position": {
             "left": 94,
             "top": 509,
@@ -653,13 +795,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/star-four-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 28,
           "shape_type": "textbox",
           "position": {
             "left": 156,
@@ -695,9 +841,13 @@
           ]
         },
         {
+          "id": 29,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "shadow": {
             "radius": 2,
             "offset": 1,
@@ -705,12 +855,23 @@
             "opacity": 0.05,
             "angle": 90
           },
-          "position": { "left": 80, "top": 591.5, "width": 56, "height": 56 },
+          "position": {
+            "left": 80,
+            "top": 591.5,
+            "width": 56,
+            "height": 56
+          },
           "border_radius": 12
         },
         {
+          "id": 30,
           "shape_type": "picture",
-          "position": { "left": 94, "top": 605.5, "width": 28, "height": 28 },
+          "position": {
+            "left": 94,
+            "top": 605.5,
+            "width": 28,
+            "height": 28
+          },
           "source_position": {
             "left": 94,
             "top": 605.5,
@@ -721,13 +882,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/users-three-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 31,
           "shape_type": "textbox",
           "position": {
             "left": 156,
@@ -763,8 +928,14 @@
           ]
         },
         {
+          "id": 32,
           "shape_type": "picture",
-          "position": { "left": 672, "top": 181, "width": 528, "height": 500 },
+          "position": {
+            "left": 672,
+            "top": 181,
+            "width": 528,
+            "height": 500
+          },
           "source_position": {
             "left": 672,
             "top": 181,
@@ -775,15 +946,24 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/5d237c727dfd2de3f40790974a8b40d9.png"
           }
         },
         {
+          "id": 33,
           "shape_type": "picture",
-          "position": { "left": 712, "top": 221, "width": 448, "height": 420 },
+          "position": {
+            "left": 712,
+            "top": 221,
+            "width": 448,
+            "height": 420
+          },
           "source_position": {
             "left": 712,
             "top": 221,
@@ -793,17 +973,31 @@
           "clip": false,
           "invert": false,
           "opacity": 0.85,
-          "border_radius": [16, 16, 16, 16],
+          "border_radius": [
+            16,
+            16,
+            16,
+            16
+          ],
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/4482acce-f6a0-4047-a380-79f1cfab01c1.png"
           }
         },
         {
+          "id": 34,
           "shape_type": "picture",
-          "position": { "left": 1040, "top": 521, "width": 140, "height": 140 },
+          "position": {
+            "left": 1040,
+            "top": 521,
+            "width": 140,
+            "height": 140
+          },
           "source_position": {
             "left": 1040,
             "top": 521,
@@ -813,15 +1007,24 @@
           "clip": false,
           "invert": false,
           "opacity": 1,
-          "border_radius": [70, 70, 70, 70],
+          "border_radius": [
+            70,
+            70,
+            70,
+            70
+          ],
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/df187891-a14f-463d-8f6a-8fc7e9bd6291.png"
           }
         },
         {
+          "id": 35,
           "shape_type": "textbox",
           "position": {
             "left": 1174.4375,
@@ -857,11 +1060,15 @@
           ]
         }
       ],
-      "background": { "color": "ffffff", "opacity": 1 }
+      "background": {
+        "color": "ffffff",
+        "opacity": 1
+      }
     },
     {
       "shapes": [
         {
+          "id": 36,
           "shape_type": "textbox",
           "position": {
             "left": 80,
@@ -917,6 +1124,7 @@
           ]
         },
         {
+          "id": 37,
           "shape_type": "textbox",
           "position": {
             "left": 1171.3125,
@@ -952,15 +1160,30 @@
           ]
         },
         {
+          "id": 38,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 80, "top": 175, "width": 48, "height": 48 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 80,
+            "top": 175,
+            "width": 48,
+            "height": 48
+          },
           "border_radius": 12
         },
         {
+          "id": 39,
           "shape_type": "picture",
-          "position": { "left": 92, "top": 187, "width": 24, "height": 24 },
+          "position": {
+            "left": 92,
+            "top": 187,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 92,
             "top": 187,
@@ -971,13 +1194,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/tea-bag-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 40,
           "shape_type": "textbox",
           "position": {
             "left": 144,
@@ -1013,13 +1240,23 @@
           ]
         },
         {
+          "id": 41,
           "shape_type": "autoshape",
           "type": 1,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 144, "top": 208, "width": 48, "height": 2 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 144,
+            "top": 208,
+            "width": 48,
+            "height": 2
+          },
           "text_wrap": true
         },
         {
+          "id": 42,
           "shape_type": "textbox",
           "position": {
             "left": 144,
@@ -1055,15 +1292,30 @@
           ]
         },
         {
+          "id": 43,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 80, "top": 276, "width": 48, "height": 48 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 80,
+            "top": 276,
+            "width": 48,
+            "height": 48
+          },
           "border_radius": 12
         },
         {
+          "id": 44,
           "shape_type": "picture",
-          "position": { "left": 92, "top": 288, "width": 24, "height": 24 },
+          "position": {
+            "left": 92,
+            "top": 288,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 92,
             "top": 288,
@@ -1074,13 +1326,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/coffee-bean-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 45,
           "shape_type": "textbox",
           "position": {
             "left": 144,
@@ -1116,13 +1372,23 @@
           ]
         },
         {
+          "id": 46,
           "shape_type": "autoshape",
           "type": 1,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 144, "top": 309, "width": 48, "height": 2 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 144,
+            "top": 309,
+            "width": 48,
+            "height": 2
+          },
           "text_wrap": true
         },
         {
+          "id": 47,
           "shape_type": "textbox",
           "position": {
             "left": 144,
@@ -1158,15 +1424,30 @@
           ]
         },
         {
+          "id": 48,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 80, "top": 377, "width": 48, "height": 48 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 80,
+            "top": 377,
+            "width": 48,
+            "height": 48
+          },
           "border_radius": 12
         },
         {
+          "id": 49,
           "shape_type": "picture",
-          "position": { "left": 92, "top": 389, "width": 24, "height": 24 },
+          "position": {
+            "left": 92,
+            "top": 389,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 92,
             "top": 389,
@@ -1177,13 +1458,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/hamburger-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 50,
           "shape_type": "textbox",
           "position": {
             "left": 144,
@@ -1219,13 +1504,23 @@
           ]
         },
         {
+          "id": 51,
           "shape_type": "autoshape",
           "type": 1,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 144, "top": 410, "width": 48, "height": 2 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 144,
+            "top": 410,
+            "width": 48,
+            "height": 2
+          },
           "text_wrap": true
         },
         {
+          "id": 52,
           "shape_type": "textbox",
           "position": {
             "left": 144,
@@ -1261,15 +1556,30 @@
           ]
         },
         {
+          "id": 53,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 80, "top": 478, "width": 48, "height": 48 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 80,
+            "top": 478,
+            "width": 48,
+            "height": 48
+          },
           "border_radius": 12
         },
         {
+          "id": 54,
           "shape_type": "picture",
-          "position": { "left": 92, "top": 490, "width": 24, "height": 24 },
+          "position": {
+            "left": 92,
+            "top": 490,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 92,
             "top": 490,
@@ -1280,13 +1590,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/rectangle-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 55,
           "shape_type": "textbox",
           "position": {
             "left": 144,
@@ -1322,13 +1636,23 @@
           ]
         },
         {
+          "id": 56,
           "shape_type": "autoshape",
           "type": 1,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 144, "top": 511, "width": 48, "height": 2 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 144,
+            "top": 511,
+            "width": 48,
+            "height": 2
+          },
           "text_wrap": true
         },
         {
+          "id": 57,
           "shape_type": "textbox",
           "position": {
             "left": 144,
@@ -1364,8 +1688,14 @@
           ]
         },
         {
+          "id": 58,
           "shape_type": "picture",
-          "position": { "left": 640, "top": 145, "width": 560, "height": 548 },
+          "position": {
+            "left": 640,
+            "top": 145,
+            "width": 560,
+            "height": 548
+          },
           "source_position": {
             "left": 640,
             "top": 145,
@@ -1376,15 +1706,24 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/5d237c727dfd2de3f40790974a8b40d9.png"
           }
         },
         {
+          "id": 59,
           "shape_type": "picture",
-          "position": { "left": 660, "top": 175, "width": 32, "height": 32 },
+          "position": {
+            "left": 660,
+            "top": 175,
+            "width": 32,
+            "height": 32
+          },
           "source_position": {
             "left": 660,
             "top": 175,
@@ -1395,15 +1734,24 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/fd40945b3afb167b982b46cbdf42f9ab.png"
           }
         },
         {
+          "id": 60,
           "shape_type": "picture",
-          "position": { "left": 1136, "top": 629, "width": 24, "height": 24 },
+          "position": {
+            "left": 1136,
+            "top": 629,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 1136,
             "top": 629,
@@ -1414,15 +1762,24 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/fd40945b3afb167b982b46cbdf42f9ab.png"
           }
         },
         {
+          "id": 61,
           "shape_type": "picture",
-          "position": { "left": 670, "top": 195, "width": 280, "height": 220 },
+          "position": {
+            "left": 670,
+            "top": 195,
+            "width": 280,
+            "height": 220
+          },
           "source_position": {
             "left": 670,
             "top": 195,
@@ -1432,17 +1789,31 @@
           "clip": false,
           "invert": false,
           "opacity": 1,
-          "border_radius": [16, 16, 16, 16],
+          "border_radius": [
+            16,
+            16,
+            16,
+            16
+          ],
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/21aea1bc-d3b0-4dcf-a7ea-20c7c9f0f49d.png"
           }
         },
         {
+          "id": 62,
           "shape_type": "picture",
-          "position": { "left": 880, "top": 295, "width": 300, "height": 240 },
+          "position": {
+            "left": 880,
+            "top": 295,
+            "width": 300,
+            "height": 240
+          },
           "source_position": {
             "left": 880,
             "top": 295,
@@ -1452,17 +1823,31 @@
           "clip": false,
           "invert": false,
           "opacity": 1,
-          "border_radius": [16, 16, 16, 16],
+          "border_radius": [
+            16,
+            16,
+            16,
+            16
+          ],
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/c5d557fa-e821-4a6b-84c0-be2bdbe3b6c3.png"
           }
         },
         {
+          "id": 63,
           "shape_type": "picture",
-          "position": { "left": 680, "top": 483, "width": 260, "height": 180 },
+          "position": {
+            "left": 680,
+            "top": 483,
+            "width": 260,
+            "height": 180
+          },
           "source_position": {
             "left": 680,
             "top": 483,
@@ -1472,22 +1857,39 @@
           "clip": false,
           "invert": false,
           "opacity": 1,
-          "border_radius": [16, 16, 16, 16],
+          "border_radius": [
+            16,
+            16,
+            16,
+            16
+          ],
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/526bc276-6ed7-4792-bc40-141df9fed11c.png"
           }
         }
       ],
-      "background": { "color": "ffffff", "opacity": 1 }
+      "background": {
+        "color": "ffffff",
+        "opacity": 1
+      }
     },
     {
       "shapes": [
         {
+          "id": 64,
           "shape_type": "textbox",
-          "position": { "left": 80, "top": 64, "width": 1122, "height": 75 },
+          "position": {
+            "left": 80,
+            "top": 64,
+            "width": 1122,
+            "height": 75
+          },
           "text_wrap": true,
           "paragraphs": [
             {
@@ -1536,10 +1938,18 @@
           ]
         },
         {
+          "id": 65,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "ffffff", "opacity": 1 },
-          "stroke": { "color": "f3f4f6", "thickness": 1, "opacity": 1 },
+          "fill": {
+            "color": "ffffff",
+            "opacity": 1
+          },
+          "stroke": {
+            "color": "f3f4f6",
+            "thickness": 1,
+            "opacity": 1
+          },
           "shadow": {
             "radius": 30,
             "offset": 8,
@@ -1547,31 +1957,66 @@
             "opacity": 0.08,
             "angle": 90
           },
-          "position": { "left": 80, "top": 175, "width": 1120, "height": 232 },
+          "position": {
+            "left": 80,
+            "top": 175,
+            "width": 1120,
+            "height": 232
+          },
           "border_radius": 16
         },
         {
+          "id": 66,
           "shape_type": "table",
-          "position": { "left": 81, "top": 176, "width": 1118, "height": 230 },
+          "position": {
+            "left": 81,
+            "top": 176,
+            "width": 1118,
+            "height": 230
+          },
           "rows": 3,
           "cols": 2,
-          "row_heights": [78.5, 76, 75.5],
-          "col_widths": [503.09375, 614.90625],
+          "row_heights": [
+            78.5,
+            76,
+            75.5
+          ],
+          "col_widths": [
+            503.09375,
+            614.90625
+          ],
           "cells": [
             {
               "row": 0,
               "col": 0,
               "row_span": 1,
               "col_span": 1,
-              "margin": { "top": 24, "bottom": 24, "left": 32, "right": 32 },
-              "fill": { "color": "f9fafb", "opacity": 1 },
+              "margin": {
+                "top": 24,
+                "bottom": 24,
+                "left": 32,
+                "right": 32
+              },
+              "fill": {
+                "color": "f9fafb",
+                "opacity": 1
+              },
               "borders": {
-                "bottom": { "color": "e5e7eb", "thickness": 1, "opacity": 1 }
+                "bottom": {
+                  "color": "e5e7eb",
+                  "thickness": 1,
+                  "opacity": 1
+                }
               },
               "vertical_alignment": 1,
               "paragraphs": [
                 {
-                  "spacing": { "top": 0, "bottom": 0, "left": 0, "right": 0 },
+                  "spacing": {
+                    "top": 0,
+                    "bottom": 0,
+                    "left": 0,
+                    "right": 0
+                  },
                   "alignment": 1,
                   "font": {
                     "name": "Poppins",
@@ -1602,15 +2047,32 @@
               "col": 1,
               "row_span": 1,
               "col_span": 1,
-              "margin": { "top": 24, "bottom": 24, "left": 32, "right": 32 },
-              "fill": { "color": "f9fafb", "opacity": 1 },
+              "margin": {
+                "top": 24,
+                "bottom": 24,
+                "left": 32,
+                "right": 32
+              },
+              "fill": {
+                "color": "f9fafb",
+                "opacity": 1
+              },
               "borders": {
-                "bottom": { "color": "e5e7eb", "thickness": 1, "opacity": 1 }
+                "bottom": {
+                  "color": "e5e7eb",
+                  "thickness": 1,
+                  "opacity": 1
+                }
               },
               "vertical_alignment": 1,
               "paragraphs": [
                 {
-                  "spacing": { "top": 0, "bottom": 0, "left": 0, "right": 0 },
+                  "spacing": {
+                    "top": 0,
+                    "bottom": 0,
+                    "left": 0,
+                    "right": 0
+                  },
                   "alignment": 1,
                   "font": {
                     "name": "Poppins",
@@ -1641,15 +2103,33 @@
               "col": 0,
               "row_span": 1,
               "col_span": 1,
-              "margin": { "top": 24, "bottom": 24, "left": 32, "right": 32 },
+              "margin": {
+                "top": 24,
+                "bottom": 24,
+                "left": 32,
+                "right": 32
+              },
               "borders": {
-                "top": { "color": "e5e7eb", "thickness": 1, "opacity": 1 },
-                "bottom": { "color": "f3f4f6", "thickness": 1, "opacity": 1 }
+                "top": {
+                  "color": "e5e7eb",
+                  "thickness": 1,
+                  "opacity": 1
+                },
+                "bottom": {
+                  "color": "f3f4f6",
+                  "thickness": 1,
+                  "opacity": 1
+                }
               },
               "vertical_alignment": 1,
               "paragraphs": [
                 {
-                  "spacing": { "top": 0, "bottom": 0, "left": 0, "right": 0 },
+                  "spacing": {
+                    "top": 0,
+                    "bottom": 0,
+                    "left": 0,
+                    "right": 0
+                  },
                   "alignment": 1,
                   "font": {
                     "name": "Poppins",
@@ -1680,15 +2160,33 @@
               "col": 1,
               "row_span": 1,
               "col_span": 1,
-              "margin": { "top": 24, "bottom": 24, "left": 32, "right": 32 },
+              "margin": {
+                "top": 24,
+                "bottom": 24,
+                "left": 32,
+                "right": 32
+              },
               "borders": {
-                "top": { "color": "e5e7eb", "thickness": 1, "opacity": 1 },
-                "bottom": { "color": "f3f4f6", "thickness": 1, "opacity": 1 }
+                "top": {
+                  "color": "e5e7eb",
+                  "thickness": 1,
+                  "opacity": 1
+                },
+                "bottom": {
+                  "color": "f3f4f6",
+                  "thickness": 1,
+                  "opacity": 1
+                }
               },
               "vertical_alignment": 1,
               "paragraphs": [
                 {
-                  "spacing": { "top": 0, "bottom": 0, "left": 0, "right": 0 },
+                  "spacing": {
+                    "top": 0,
+                    "bottom": 0,
+                    "left": 0,
+                    "right": 0
+                  },
                   "alignment": 1,
                   "font": {
                     "name": "Poppins",
@@ -1719,14 +2217,28 @@
               "col": 0,
               "row_span": 1,
               "col_span": 1,
-              "margin": { "top": 24, "bottom": 24, "left": 32, "right": 32 },
+              "margin": {
+                "top": 24,
+                "bottom": 24,
+                "left": 32,
+                "right": 32
+              },
               "borders": {
-                "top": { "color": "f3f4f6", "thickness": 1, "opacity": 1 }
+                "top": {
+                  "color": "f3f4f6",
+                  "thickness": 1,
+                  "opacity": 1
+                }
               },
               "vertical_alignment": 1,
               "paragraphs": [
                 {
-                  "spacing": { "top": 0, "bottom": 0, "left": 0, "right": 0 },
+                  "spacing": {
+                    "top": 0,
+                    "bottom": 0,
+                    "left": 0,
+                    "right": 0
+                  },
                   "alignment": 1,
                   "font": {
                     "name": "Poppins",
@@ -1757,14 +2269,28 @@
               "col": 1,
               "row_span": 1,
               "col_span": 1,
-              "margin": { "top": 24, "bottom": 24, "left": 32, "right": 32 },
+              "margin": {
+                "top": 24,
+                "bottom": 24,
+                "left": 32,
+                "right": 32
+              },
               "borders": {
-                "top": { "color": "f3f4f6", "thickness": 1, "opacity": 1 }
+                "top": {
+                  "color": "f3f4f6",
+                  "thickness": 1,
+                  "opacity": 1
+                }
               },
               "vertical_alignment": 1,
               "paragraphs": [
                 {
-                  "spacing": { "top": 0, "bottom": 0, "left": 0, "right": 0 },
+                  "spacing": {
+                    "top": 0,
+                    "bottom": 0,
+                    "left": 0,
+                    "right": 0
+                  },
                   "alignment": 1,
                   "font": {
                     "name": "Poppins",
@@ -1793,8 +2319,14 @@
           ]
         },
         {
+          "id": 67,
           "shape_type": "textbox",
-          "position": { "left": 80, "top": 455, "width": 1122, "height": 30 },
+          "position": {
+            "left": 80,
+            "top": 455,
+            "width": 1122,
+            "height": 30
+          },
           "text_wrap": true,
           "paragraphs": [
             {
@@ -1823,22 +2355,46 @@
           ]
         },
         {
+          "id": 68,
           "shape_type": "autoshape",
           "type": 1,
-          "fill": { "color": "e5e7eb", "opacity": 1 },
-          "position": { "left": 80, "top": 493, "width": 1120, "height": 1 },
+          "fill": {
+            "color": "e5e7eb",
+            "opacity": 1
+          },
+          "position": {
+            "left": 80,
+            "top": 493,
+            "width": 1120,
+            "height": 1
+          },
           "text_wrap": true
         },
         {
+          "id": 69,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 176, "top": 526, "width": 48, "height": 48 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 176,
+            "top": 526,
+            "width": 48,
+            "height": 48
+          },
           "border_radius": 12
         },
         {
+          "id": 70,
           "shape_type": "picture",
-          "position": { "left": 188, "top": 538, "width": 24, "height": 24 },
+          "position": {
+            "left": 188,
+            "top": 538,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 188,
             "top": 538,
@@ -1849,13 +2405,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/star-four-bold.svg&stroke=FFFFFF"
           }
         },
         {
+          "id": 71,
           "shape_type": "textbox",
           "position": {
             "left": 97.359375,
@@ -1892,9 +2452,13 @@
           ]
         },
         {
+          "id": 72,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "position": {
             "left": 469.328125,
             "top": 526,
@@ -1904,6 +2468,7 @@
           "border_radius": 12
         },
         {
+          "id": 73,
           "shape_type": "picture",
           "position": {
             "left": 481.328125,
@@ -1921,13 +2486,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/hourglass-bold.svg&stroke=FFFFFF"
           }
         },
         {
+          "id": 74,
           "shape_type": "textbox",
           "position": {
             "left": 431.859375,
@@ -1964,9 +2533,13 @@
           ]
         },
         {
+          "id": 75,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "position": {
             "left": 762.671875,
             "top": 526,
@@ -1976,6 +2549,7 @@
           "border_radius": 12
         },
         {
+          "id": 76,
           "shape_type": "picture",
           "position": {
             "left": 774.671875,
@@ -1993,13 +2567,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/smiley-bold.svg&stroke=FFFFFF"
           }
         },
         {
+          "id": 77,
           "shape_type": "textbox",
           "position": {
             "left": 719.25,
@@ -2036,15 +2614,30 @@
           ]
         },
         {
+          "id": 78,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 1056, "top": 526, "width": 48, "height": 48 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 1056,
+            "top": 526,
+            "width": 48,
+            "height": 48
+          },
           "border_radius": 12
         },
         {
+          "id": 79,
           "shape_type": "picture",
-          "position": { "left": 1068, "top": 538, "width": 24, "height": 24 },
+          "position": {
+            "left": 1068,
+            "top": 538,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 1068,
             "top": 538,
@@ -2055,13 +2648,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/fork-knife-bold.svg&stroke=FFFFFF"
           }
         },
         {
+          "id": 80,
           "shape_type": "textbox",
           "position": {
             "left": 961.171875,
@@ -2098,6 +2695,7 @@
           ]
         },
         {
+          "id": 81,
           "shape_type": "textbox",
           "position": {
             "left": 1173.359375,
@@ -2133,13 +2731,22 @@
           ]
         }
       ],
-      "background": { "color": "ffffff", "opacity": 1 }
+      "background": {
+        "color": "ffffff",
+        "opacity": 1
+      }
     },
     {
       "shapes": [
         {
+          "id": 82,
           "shape_type": "picture",
-          "position": { "left": 0, "top": 0, "width": 128, "height": 720 },
+          "position": {
+            "left": 0,
+            "top": 0,
+            "width": 128,
+            "height": 720
+          },
           "source_position": {
             "left": 0,
             "top": 0,
@@ -2150,15 +2757,24 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/49096c302cdaa44db5ff9286601a626a.png"
           }
         },
         {
+          "id": 83,
           "shape_type": "picture",
-          "position": { "left": 0, "top": 592, "width": 192, "height": 128 },
+          "position": {
+            "left": 0,
+            "top": 592,
+            "width": 192,
+            "height": 128
+          },
           "source_position": {
             "left": 0,
             "top": 592,
@@ -2169,13 +2785,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/057019908b84585c4b7c5174cfcecdfc.png"
           }
         },
         {
+          "id": 84,
           "shape_type": "textbox",
           "position": {
             "left": 1202.515625,
@@ -2211,8 +2831,14 @@
           ]
         },
         {
+          "id": 85,
           "shape_type": "textbox",
-          "position": { "left": 180, "top": 64, "width": 1022, "height": 75 },
+          "position": {
+            "left": 180,
+            "top": 64,
+            "width": 1022,
+            "height": 75
+          },
           "text_wrap": true,
           "paragraphs": [
             {
@@ -2241,9 +2867,13 @@
           ]
         },
         {
+          "id": 86,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "shadow": {
             "radius": 6,
             "offset": 4,
@@ -2251,12 +2881,23 @@
             "opacity": 0.1,
             "angle": 90
           },
-          "position": { "left": 180, "top": 235, "width": 72, "height": 72 },
+          "position": {
+            "left": 180,
+            "top": 235,
+            "width": 72,
+            "height": 72
+          },
           "border_radius": 12
         },
         {
+          "id": 87,
           "shape_type": "picture",
-          "position": { "left": 198, "top": 253, "width": 36, "height": 36 },
+          "position": {
+            "left": 198,
+            "top": 253,
+            "width": 36,
+            "height": 36
+          },
           "source_position": {
             "left": 198,
             "top": 253,
@@ -2267,13 +2908,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/google-play-logo-bold.svg&stroke=FFFFFF"
           }
         },
         {
+          "id": 88,
           "shape_type": "textbox",
           "position": {
             "left": 276,
@@ -2309,13 +2954,23 @@
           ]
         },
         {
+          "id": 89,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 276, "top": 286, "width": 64, "height": 4 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 276,
+            "top": 286,
+            "width": 64,
+            "height": 4
+          },
           "border_radius": 2
         },
         {
+          "id": 90,
           "shape_type": "textbox",
           "position": {
             "left": 276,
@@ -2351,9 +3006,13 @@
           ]
         },
         {
+          "id": 91,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "shadow": {
             "radius": 6,
             "offset": 4,
@@ -2361,12 +3020,23 @@
             "opacity": 0.1,
             "angle": 90
           },
-          "position": { "left": 730, "top": 235, "width": 72, "height": 72 },
+          "position": {
+            "left": 730,
+            "top": 235,
+            "width": 72,
+            "height": 72
+          },
           "border_radius": 12
         },
         {
+          "id": 92,
           "shape_type": "picture",
-          "position": { "left": 748, "top": 253, "width": 36, "height": 36 },
+          "position": {
+            "left": 748,
+            "top": 253,
+            "width": 36,
+            "height": 36
+          },
           "source_position": {
             "left": 748,
             "top": 253,
@@ -2377,13 +3047,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/truck-bold.svg&stroke=FFFFFF"
           }
         },
         {
+          "id": 93,
           "shape_type": "textbox",
           "position": {
             "left": 826,
@@ -2419,13 +3093,23 @@
           ]
         },
         {
+          "id": 94,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 826, "top": 286, "width": 64, "height": 4 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 826,
+            "top": 286,
+            "width": 64,
+            "height": 4
+          },
           "border_radius": 2
         },
         {
+          "id": 95,
           "shape_type": "textbox",
           "position": {
             "left": 826,
@@ -2461,9 +3145,13 @@
           ]
         },
         {
+          "id": 96,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "shadow": {
             "radius": 6,
             "offset": 4,
@@ -2471,12 +3159,23 @@
             "opacity": 0.1,
             "angle": 90
           },
-          "position": { "left": 180, "top": 418.5, "width": 72, "height": 72 },
+          "position": {
+            "left": 180,
+            "top": 418.5,
+            "width": 72,
+            "height": 72
+          },
           "border_radius": 12
         },
         {
+          "id": 97,
           "shape_type": "picture",
-          "position": { "left": 198, "top": 436.5, "width": 36, "height": 36 },
+          "position": {
+            "left": 198,
+            "top": 436.5,
+            "width": 36,
+            "height": 36
+          },
           "source_position": {
             "left": 198,
             "top": 436.5,
@@ -2487,15 +3186,24 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/rectangle-bold.svg&stroke=FFFFFF"
           }
         },
         {
+          "id": 98,
           "shape_type": "textbox",
-          "position": { "left": 276, "top": 418.5, "width": 376, "height": 35 },
+          "position": {
+            "left": 276,
+            "top": 418.5,
+            "width": 376,
+            "height": 35
+          },
           "text_wrap": true,
           "paragraphs": [
             {
@@ -2524,13 +3232,23 @@
           ]
         },
         {
+          "id": 99,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 276, "top": 469.5, "width": 64, "height": 4 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 276,
+            "top": 469.5,
+            "width": 64,
+            "height": 4
+          },
           "border_radius": 2
         },
         {
+          "id": 100,
           "shape_type": "textbox",
           "position": {
             "left": 276,
@@ -2566,9 +3284,13 @@
           ]
         },
         {
+          "id": 101,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "shadow": {
             "radius": 6,
             "offset": 4,
@@ -2576,12 +3298,23 @@
             "opacity": 0.1,
             "angle": 90
           },
-          "position": { "left": 730, "top": 418.5, "width": 72, "height": 72 },
+          "position": {
+            "left": 730,
+            "top": 418.5,
+            "width": 72,
+            "height": 72
+          },
           "border_radius": 12
         },
         {
+          "id": 102,
           "shape_type": "picture",
-          "position": { "left": 748, "top": 436.5, "width": 36, "height": 36 },
+          "position": {
+            "left": 748,
+            "top": 436.5,
+            "width": 36,
+            "height": 36
+          },
           "source_position": {
             "left": 748,
             "top": 436.5,
@@ -2592,13 +3325,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/warehouse-bold.svg&stroke=FFFFFF"
           }
         },
         {
+          "id": 103,
           "shape_type": "textbox",
           "position": {
             "left": 826,
@@ -2634,13 +3371,23 @@
           ]
         },
         {
+          "id": 104,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 826, "top": 469.5, "width": 64, "height": 4 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 826,
+            "top": 469.5,
+            "width": 64,
+            "height": 4
+          },
           "border_radius": 2
         },
         {
+          "id": 105,
           "shape_type": "textbox",
           "position": {
             "left": 826,
@@ -2676,13 +3423,22 @@
           ]
         }
       ],
-      "background": { "color": "ffffff", "opacity": 1 }
+      "background": {
+        "color": "ffffff",
+        "opacity": 1
+      }
     },
     {
       "shapes": [
         {
+          "id": 106,
           "shape_type": "textbox",
-          "position": { "left": 80, "top": 48, "width": 1122, "height": 75 },
+          "position": {
+            "left": 80,
+            "top": 48,
+            "width": 1122,
+            "height": 75
+          },
           "text_wrap": true,
           "paragraphs": [
             {
@@ -2731,8 +3487,14 @@
           ]
         },
         {
+          "id": 107,
           "shape_type": "picture",
-          "position": { "left": 80, "top": 171, "width": 528, "height": 528 },
+          "position": {
+            "left": 80,
+            "top": 171,
+            "width": 528,
+            "height": 528
+          },
           "source_position": {
             "left": 80,
             "top": 171,
@@ -2743,15 +3505,24 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/5d237c727dfd2de3f40790974a8b40d9.png"
           }
         },
         {
+          "id": 108,
           "shape_type": "picture",
-          "position": { "left": 104, "top": 195, "width": 228, "height": 228 },
+          "position": {
+            "left": 104,
+            "top": 195,
+            "width": 228,
+            "height": 228
+          },
           "source_position": {
             "left": 104,
             "top": 195,
@@ -2761,17 +3532,31 @@
           "clip": false,
           "invert": false,
           "opacity": 0.85,
-          "border_radius": [16, 16, 16, 16],
+          "border_radius": [
+            16,
+            16,
+            16,
+            16
+          ],
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/e56e32d5-f62a-4d0f-bee8-c05e4de345dd.png"
           }
         },
         {
+          "id": 109,
           "shape_type": "picture",
-          "position": { "left": 356, "top": 195, "width": 228, "height": 228 },
+          "position": {
+            "left": 356,
+            "top": 195,
+            "width": 228,
+            "height": 228
+          },
           "source_position": {
             "left": 356,
             "top": 195,
@@ -2781,17 +3566,31 @@
           "clip": false,
           "invert": false,
           "opacity": 1,
-          "border_radius": [16, 16, 16, 16],
+          "border_radius": [
+            16,
+            16,
+            16,
+            16
+          ],
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/426b8a54-cd87-4e63-a230-745da31da758.png"
           }
         },
         {
+          "id": 110,
           "shape_type": "picture",
-          "position": { "left": 104, "top": 447, "width": 228, "height": 228 },
+          "position": {
+            "left": 104,
+            "top": 447,
+            "width": 228,
+            "height": 228
+          },
           "source_position": {
             "left": 104,
             "top": 447,
@@ -2801,17 +3600,31 @@
           "clip": false,
           "invert": false,
           "opacity": 1,
-          "border_radius": [16, 16, 16, 16],
+          "border_radius": [
+            16,
+            16,
+            16,
+            16
+          ],
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/19c6431f-47dc-41e7-8924-d2a9ca058b1a.png"
           }
         },
         {
+          "id": 111,
           "shape_type": "picture",
-          "position": { "left": 356, "top": 447, "width": 228, "height": 228 },
+          "position": {
+            "left": 356,
+            "top": 447,
+            "width": 228,
+            "height": 228
+          },
           "source_position": {
             "left": 356,
             "top": 447,
@@ -2821,24 +3634,47 @@
           "clip": false,
           "invert": false,
           "opacity": 1,
-          "border_radius": [16, 16, 16, 16],
+          "border_radius": [
+            16,
+            16,
+            16,
+            16
+          ],
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/59a2c662-3b33-4287-8db4-69e8d6bf3f3a.png"
           }
         },
         {
+          "id": 112,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 640, "top": 227.5, "width": 48, "height": 48 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 640,
+            "top": 227.5,
+            "width": 48,
+            "height": 48
+          },
           "border_radius": 12
         },
         {
+          "id": 113,
           "shape_type": "picture",
-          "position": { "left": 652, "top": 239.5, "width": 24, "height": 24 },
+          "position": {
+            "left": 652,
+            "top": 239.5,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 652,
             "top": 239.5,
@@ -2849,13 +3685,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/suitcase-rolling-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 114,
           "shape_type": "textbox",
           "position": {
             "left": 708,
@@ -2891,15 +3731,30 @@
           ]
         },
         {
+          "id": 115,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 640, "top": 299.5, "width": 48, "height": 48 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 640,
+            "top": 299.5,
+            "width": 48,
+            "height": 48
+          },
           "border_radius": 12
         },
         {
+          "id": 116,
           "shape_type": "picture",
-          "position": { "left": 652, "top": 311.5, "width": 24, "height": 24 },
+          "position": {
+            "left": 652,
+            "top": 311.5,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 652,
             "top": 311.5,
@@ -2910,13 +3765,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/numpad-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 117,
           "shape_type": "textbox",
           "position": {
             "left": 708,
@@ -2952,15 +3811,30 @@
           ]
         },
         {
+          "id": 118,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 640, "top": 371.5, "width": 48, "height": 48 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 640,
+            "top": 371.5,
+            "width": 48,
+            "height": 48
+          },
           "border_radius": 12
         },
         {
+          "id": 119,
           "shape_type": "picture",
-          "position": { "left": 652, "top": 383.5, "width": 24, "height": 24 },
+          "position": {
+            "left": 652,
+            "top": 383.5,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 652,
             "top": 383.5,
@@ -2971,13 +3845,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/bowl-food-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 120,
           "shape_type": "textbox",
           "position": {
             "left": 708,
@@ -3013,15 +3891,30 @@
           ]
         },
         {
+          "id": 121,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 640, "top": 443.5, "width": 48, "height": 48 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 640,
+            "top": 443.5,
+            "width": 48,
+            "height": 48
+          },
           "border_radius": 12
         },
         {
+          "id": 122,
           "shape_type": "picture",
-          "position": { "left": 652, "top": 455.5, "width": 24, "height": 24 },
+          "position": {
+            "left": 652,
+            "top": 455.5,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 652,
             "top": 455.5,
@@ -3032,13 +3925,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/pint-glass-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 123,
           "shape_type": "textbox",
           "position": {
             "left": 708,
@@ -3074,15 +3971,30 @@
           ]
         },
         {
+          "id": 124,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 640, "top": 519, "width": 48, "height": 48 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 640,
+            "top": 519,
+            "width": 48,
+            "height": 48
+          },
           "border_radius": 12
         },
         {
+          "id": 125,
           "shape_type": "picture",
-          "position": { "left": 652, "top": 531, "width": 24, "height": 24 },
+          "position": {
+            "left": 652,
+            "top": 531,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 652,
             "top": 531,
@@ -3093,15 +4005,24 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/coffee-bean-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 126,
           "shape_type": "textbox",
-          "position": { "left": 708, "top": 515.5, "width": 494, "height": 55 },
+          "position": {
+            "left": 708,
+            "top": 515.5,
+            "width": 494,
+            "height": 55
+          },
           "text_wrap": true,
           "paragraphs": [
             {
@@ -3130,15 +4051,30 @@
           ]
         },
         {
+          "id": 127,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 640, "top": 594.5, "width": 48, "height": 48 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 640,
+            "top": 594.5,
+            "width": 48,
+            "height": 48
+          },
           "border_radius": 12
         },
         {
+          "id": 128,
           "shape_type": "picture",
-          "position": { "left": 652, "top": 606.5, "width": 24, "height": 24 },
+          "position": {
+            "left": 652,
+            "top": 606.5,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 652,
             "top": 606.5,
@@ -3149,13 +4085,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/egg-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 129,
           "shape_type": "textbox",
           "position": {
             "left": 708,
@@ -3191,6 +4131,7 @@
           ]
         },
         {
+          "id": 130,
           "shape_type": "textbox",
           "position": {
             "left": 1213.984375,
@@ -3226,13 +4167,22 @@
           ]
         }
       ],
-      "background": { "color": "ffffff", "opacity": 1 }
+      "background": {
+        "color": "ffffff",
+        "opacity": 1
+      }
     },
     {
       "shapes": [
         {
+          "id": 131,
           "shape_type": "picture",
-          "position": { "left": 0, "top": 0, "width": 128, "height": 720 },
+          "position": {
+            "left": 0,
+            "top": 0,
+            "width": 128,
+            "height": 720
+          },
           "source_position": {
             "left": 0,
             "top": 0,
@@ -3243,15 +4193,24 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/49096c302cdaa44db5ff9286601a626a.png"
           }
         },
         {
+          "id": 132,
           "shape_type": "picture",
-          "position": { "left": 0, "top": 592, "width": 192, "height": 128 },
+          "position": {
+            "left": 0,
+            "top": 592,
+            "width": 192,
+            "height": 128
+          },
           "source_position": {
             "left": 0,
             "top": 592,
@@ -3262,13 +4221,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/057019908b84585c4b7c5174cfcecdfc.png"
           }
         },
         {
+          "id": 133,
           "shape_type": "textbox",
           "position": {
             "left": 1214.90625,
@@ -3304,8 +4267,14 @@
           ]
         },
         {
+          "id": 134,
           "shape_type": "textbox",
-          "position": { "left": 80, "top": 48, "width": 1122, "height": 70 },
+          "position": {
+            "left": 80,
+            "top": 48,
+            "width": 1122,
+            "height": 70
+          },
           "text_wrap": true,
           "paragraphs": [
             {
@@ -3355,15 +4324,30 @@
           ]
         },
         {
+          "id": 135,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
-          "position": { "left": 160, "top": 158, "width": 48, "height": 48 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
+          "position": {
+            "left": 160,
+            "top": 158,
+            "width": 48,
+            "height": 48
+          },
           "border_radius": 12
         },
         {
+          "id": 136,
           "shape_type": "picture",
-          "position": { "left": 172, "top": 170, "width": 24, "height": 24 },
+          "position": {
+            "left": 172,
+            "top": 170,
+            "width": 24,
+            "height": 24
+          },
           "source_position": {
             "left": 172,
             "top": 170,
@@ -3374,13 +4358,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/oven-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 137,
           "shape_type": "textbox",
           "position": {
             "left": 228,
@@ -3416,6 +4404,7 @@
           ]
         },
         {
+          "id": 138,
           "shape_type": "textbox",
           "position": {
             "left": 228,
@@ -3451,9 +4440,13 @@
           ]
         },
         {
+          "id": 139,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "position": {
             "left": 160,
             "top": 236.390625,
@@ -3463,6 +4456,7 @@
           "border_radius": 12
         },
         {
+          "id": 140,
           "shape_type": "picture",
           "position": {
             "left": 172,
@@ -3480,13 +4474,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/golf-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 141,
           "shape_type": "textbox",
           "position": {
             "left": 228,
@@ -3522,6 +4520,7 @@
           ]
         },
         {
+          "id": 142,
           "shape_type": "textbox",
           "position": {
             "left": 228,
@@ -3557,9 +4556,13 @@
           ]
         },
         {
+          "id": 143,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "position": {
             "left": 160,
             "top": 314.78125,
@@ -3569,6 +4572,7 @@
           "border_radius": 12
         },
         {
+          "id": 144,
           "shape_type": "picture",
           "position": {
             "left": 172,
@@ -3586,13 +4590,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/star-four-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 145,
           "shape_type": "textbox",
           "position": {
             "left": 228,
@@ -3628,6 +4636,7 @@
           ]
         },
         {
+          "id": 146,
           "shape_type": "textbox",
           "position": {
             "left": 228,
@@ -3663,9 +4672,13 @@
           ]
         },
         {
+          "id": 147,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "position": {
             "left": 160,
             "top": 393.171875,
@@ -3675,6 +4688,7 @@
           "border_radius": 12
         },
         {
+          "id": 148,
           "shape_type": "picture",
           "position": {
             "left": 172,
@@ -3692,13 +4706,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/map-trifold-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 149,
           "shape_type": "textbox",
           "position": {
             "left": 228,
@@ -3734,6 +4752,7 @@
           ]
         },
         {
+          "id": 150,
           "shape_type": "textbox",
           "position": {
             "left": 228,
@@ -3769,9 +4788,13 @@
           ]
         },
         {
+          "id": 151,
           "shape_type": "autoshape",
           "type": 5,
-          "fill": { "color": "9333ea", "opacity": 1 },
+          "fill": {
+            "color": "9333ea",
+            "opacity": 1
+          },
           "position": {
             "left": 160,
             "top": 471.5625,
@@ -3781,6 +4804,7 @@
           "border_radius": 12
         },
         {
+          "id": 152,
           "shape_type": "picture",
           "position": {
             "left": 172,
@@ -3798,13 +4822,17 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton.ai/api/update-svg?url=https://presenton-public-eu.s3.eu-central-1.amazonaws.com/static/icons/bold/heart-half-bold.svg&stroke=ffffff"
           }
         },
         {
+          "id": 153,
           "shape_type": "textbox",
           "position": {
             "left": 228,
@@ -3840,6 +4868,7 @@
           ]
         },
         {
+          "id": 154,
           "shape_type": "textbox",
           "position": {
             "left": 228,
@@ -3875,8 +4904,14 @@
           ]
         },
         {
+          "id": 155,
           "shape_type": "picture",
-          "position": { "left": 700, "top": 158, "width": 500, "height": 480 },
+          "position": {
+            "left": 700,
+            "top": 158,
+            "width": 500,
+            "height": 480
+          },
           "source_position": {
             "left": 700,
             "top": 158,
@@ -3887,15 +4922,24 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/5d237c727dfd2de3f40790974a8b40d9.png"
           }
         },
         {
+          "id": 156,
           "shape_type": "picture",
-          "position": { "left": 1148, "top": 168, "width": 32, "height": 32 },
+          "position": {
+            "left": 1148,
+            "top": 168,
+            "width": 32,
+            "height": 32
+          },
           "source_position": {
             "left": 1148,
             "top": 168,
@@ -3906,15 +4950,24 @@
           "invert": false,
           "opacity": 1,
           "shape": "rectangle",
-          "object_fit": { "fit": "fill", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "fill",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/xml-to-html/fd40945b3afb167b982b46cbdf42f9ab.png"
           }
         },
         {
+          "id": 157,
           "shape_type": "picture",
-          "position": { "left": 700, "top": 188, "width": 340, "height": 240 },
+          "position": {
+            "left": 700,
+            "top": 188,
+            "width": 340,
+            "height": 240
+          },
           "source_position": {
             "left": 700,
             "top": 188,
@@ -3924,17 +4977,31 @@
           "clip": false,
           "invert": false,
           "opacity": 1,
-          "border_radius": [16, 16, 16, 16],
+          "border_radius": [
+            16,
+            16,
+            16,
+            16
+          ],
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/4482acce-f6a0-4047-a380-79f1cfab01c1.png"
           }
         },
         {
+          "id": 158,
           "shape_type": "picture",
-          "position": { "left": 860, "top": 368, "width": 340, "height": 240 },
+          "position": {
+            "left": 860,
+            "top": 368,
+            "width": 340,
+            "height": 240
+          },
           "source_position": {
             "left": 860,
             "top": 368,
@@ -3944,16 +5011,27 @@
           "clip": false,
           "invert": false,
           "opacity": 1,
-          "border_radius": [16, 16, 16, 16],
+          "border_radius": [
+            16,
+            16,
+            16,
+            16
+          ],
           "shape": "rectangle",
-          "object_fit": { "fit": "cover", "position": "50% 50%" },
+          "object_fit": {
+            "fit": "cover",
+            "position": "50% 50%"
+          },
           "picture": {
             "is_network": true,
             "path": "https://presenton-public-eu.s3.eu-central-1.amazonaws.com/users/1d5ec2f2-3119-4132-b483-df5c3c6b05c4/images/d8a93685-1c7e-4325-8fe7-9994dee02bc0.png"
           }
         }
       ],
-      "background": { "color": "ffffff", "opacity": 1 }
+      "background": {
+        "color": "ffffff",
+        "opacity": 1
+      }
     }
   ]
 }
