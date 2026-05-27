@@ -113,7 +113,7 @@ def _nested_element_bounds(element: dict[str, Any]) -> Bounds | None:
     if element.get("type") == "container":
         return _element_bounds(element.get("child"))
 
-    if element.get("type") in {"flex", "grid", "stack"}:
+    if element.get("type") in {"flex", "grid", "group"}:
         children = element.get("children")
         return _elements_bounds(children) if isinstance(children, list) else None
 
@@ -199,7 +199,7 @@ def _translate_element(element: Any, delta_x: float, delta_y: float) -> Any:
         translated["child"] = _translate_element(translated["child"], delta_x, delta_y)
         return translated
 
-    if translated.get("type") in {"flex", "grid", "stack"} and isinstance(
+    if translated.get("type") in {"flex", "grid", "group"} and isinstance(
         translated.get("children"), list
     ):
         translated["children"] = [

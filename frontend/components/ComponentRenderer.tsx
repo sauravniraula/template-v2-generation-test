@@ -14,12 +14,27 @@ import type {
   Size,
   SlideElement,
   Stroke,
+  TextElement,
 } from "@/types/elements";
 
 const MIN_COMPONENT_WIDTH = 80;
 const MIN_COMPONENT_HEIGHT = 60;
 const MIN_ELEMENT_WIDTH = 8;
 const MIN_ELEMENT_HEIGHT = 8;
+const DEFAULT_TEXT_FONT_FAMILY = "Arial";
+const DEFAULT_TEXT_FONT_SIZE = 16;
+const TEXT_EDITOR_HEIGHT = 34;
+const TEXT_EDITOR_WIDTH = 336;
+const TEXT_EDITOR_GAP = 8;
+const TEXT_EDITOR_FONT_FAMILIES = [
+  "Arial",
+  "Helvetica",
+  "Georgia",
+  "Times New Roman",
+  "Courier New",
+];
+const MIN_TEXT_EDITOR_FONT_SIZE = 6;
+const MAX_TEXT_EDITOR_FONT_SIZE = 96;
 
 interface Frame {
   x: number;
@@ -42,6 +57,10 @@ interface SelectedElement {
   parentFrame: Frame;
   path: ElementPathSegment[];
   layoutMode: SelectedElementLayoutMode;
+}
+
+interface SelectedTextElement extends Omit<SelectedElement, "element"> {
+  element: TextElement;
 }
 
 interface DraftComponent {
@@ -95,6 +114,10 @@ export default function ComponentRenderer(props: ComponentRendererProps) {
     draftComponent?.source === component ? draftComponent.component : component;
   const componentWidth = editableComponent.size?.width ?? 0;
   const componentHeight = editableComponent.size?.height ?? 0;
+  const selectedTextSelection: SelectedTextElement | null =
+    isElementSelectionActive && selectedElement?.element.type === "text"
+      ? { ...selectedElement, element: selectedElement.element }
+      : null;
 
   useEffect(() => {
     if (!isSelected || !frameRef.current || !transformerRef.current) {
@@ -254,6 +277,50 @@ export default function ComponentRenderer(props: ComponentRendererProps) {
     }
   };
 
+  const applySelectedTextFont = (updater: (font: Font) => Font) => {
+    if (!selectedTextSelection) {
+      return;
+    }
+
+    let nextSelectedElement: SelectedElement | null = null;
+    const nextElements = updateElementAtPath(
+      editableComponent.elements,
+      selectedTextSelection.path,
+      (element) => {
+        if (element.type !== "text") {
+          return element;
+        }
+
+        const nextElement = {
+          ...element,
+          font: updater(element.font ?? {}),
+        };
+
+        nextSelectedElement = {
+          ...selectedTextSelection,
+          element: nextElement,
+        };
+
+        return nextElement;
+      },
+    );
+    const nextComponent = {
+      ...editableComponent,
+      elements: nextElements,
+    };
+
+    setDraftComponent({
+      source: component,
+      component: nextComponent,
+    });
+
+    if (nextSelectedElement) {
+      setSelectedElement(nextSelectedElement);
+    }
+
+    onComponentChange?.(nextComponent);
+  };
+
   return (
     <>
       <Group
@@ -398,6 +465,53 @@ export default function ComponentRenderer(props: ComponentRendererProps) {
               onTransformEnd={(event) => {
                 event.cancelBubble = true;
                 commitSelectedElementFrame();
+              }}
+            />
+          ) : null}
+          {selectedTextSelection ? (
+            <TextEditorBar
+              frame={selectedTextSelection.frame}
+              element={selectedTextSelection.element}
+              containerWidth={componentWidth}
+              onToggleBold={() => {
+                applySelectedTextFont((font) => ({
+                  ...font,
+                  bold: !(font.bold ?? false),
+                }));
+              }}
+              onToggleItalic={() => {
+                applySelectedTextFont((font) => ({
+                  ...font,
+                  italic: !(font.italic ?? false),
+                }));
+              }}
+              onDecreaseFontSize={() => {
+                applySelectedTextFont((font) =>
+                  textFontWithSize(
+                    font,
+                    Math.max(
+                      Math.round((font.size ?? DEFAULT_TEXT_FONT_SIZE) - 1),
+                      MIN_TEXT_EDITOR_FONT_SIZE,
+                    ),
+                  ),
+                );
+              }}
+              onIncreaseFontSize={() => {
+                applySelectedTextFont((font) =>
+                  textFontWithSize(
+                    font,
+                    Math.min(
+                      Math.round((font.size ?? DEFAULT_TEXT_FONT_SIZE) + 1),
+                      MAX_TEXT_EDITOR_FONT_SIZE,
+                    ),
+                  ),
+                );
+              }}
+              onCycleFontFamily={() => {
+                applySelectedTextFont((font) => ({
+                  ...font,
+                  family: nextTextEditorFontFamily(font.family),
+                }));
               }}
             />
           ) : null}
@@ -562,6 +676,196 @@ const SelectedElementFrame = forwardRef<
   );
 });
 
+function TextEditorBar({
+  frame,
+  element,
+  containerWidth,
+  onToggleBold,
+  onToggleItalic,
+  onDecreaseFontSize,
+  onIncreaseFontSize,
+  onCycleFontFamily,
+}: {
+  frame: Frame;
+  element: TextElement;
+  containerWidth: number;
+  onToggleBold: () => void;
+  onToggleItalic: () => void;
+  onDecreaseFontSize: () => void;
+  onIncreaseFontSize: () => void;
+  onCycleFontFamily: () => void;
+}) {
+  const font = element.font ?? {};
+  const fontSize = Math.round(font.size ?? DEFAULT_TEXT_FONT_SIZE);
+  const family = font.family ?? DEFAULT_TEXT_FONT_FAMILY;
+  const x = Math.max(
+    0,
+    Math.min(frame.x, Math.max(containerWidth - TEXT_EDITOR_WIDTH, 0)),
+  );
+  const y =
+    frame.y >= TEXT_EDITOR_HEIGHT + TEXT_EDITOR_GAP
+      ? frame.y - TEXT_EDITOR_HEIGHT - TEXT_EDITOR_GAP
+      : frame.y + frame.height + TEXT_EDITOR_GAP;
+
+  return (
+    <Group
+      x={x}
+      y={y}
+      onMouseDown={cancelTextEditorEvent}
+      onTouchStart={cancelTextEditorEvent}
+      onClick={cancelTextEditorEvent}
+      onTap={cancelTextEditorEvent}
+    >
+      <Rect
+        width={TEXT_EDITOR_WIDTH}
+        height={TEXT_EDITOR_HEIGHT}
+        fill="#FFFFFF"
+        stroke="#CBD5E1"
+        strokeWidth={1}
+        cornerRadius={6}
+        shadowColor="#0F172A"
+        shadowBlur={10}
+        shadowOpacity={0.14}
+        shadowOffsetY={4}
+      />
+      <TextEditorButton
+        x={6}
+        label="B"
+        width={30}
+        active={font.bold ?? false}
+        fontStyle="bold"
+        onPress={onToggleBold}
+      />
+      <TextEditorButton
+        x={40}
+        label="I"
+        width={30}
+        active={font.italic ?? false}
+        fontStyle="italic"
+        onPress={onToggleItalic}
+      />
+      <TextEditorButton
+        x={80}
+        label="-"
+        width={28}
+        onPress={onDecreaseFontSize}
+      />
+      <Text
+        x={110}
+        y={7}
+        width={44}
+        height={20}
+        text={`${fontSize}px`}
+        align="center"
+        verticalAlign="middle"
+        fontFamily="Arial"
+        fontSize={12}
+        fill="#0F172A"
+      />
+      <TextEditorButton
+        x={156}
+        label="+"
+        width={28}
+        onPress={onIncreaseFontSize}
+      />
+      <TextEditorButton
+        x={194}
+        label={family}
+        width={136}
+        fontFamily={family}
+        onPress={onCycleFontFamily}
+      />
+    </Group>
+  );
+}
+
+function TextEditorButton({
+  x,
+  label,
+  width,
+  active = false,
+  fontFamily = "Arial",
+  fontStyle = "normal",
+  onPress,
+}: {
+  x: number;
+  label: string;
+  width: number;
+  active?: boolean;
+  fontFamily?: string;
+  fontStyle?: string;
+  onPress: () => void;
+}) {
+  return (
+    <Group
+      x={x}
+      y={5}
+      onMouseDown={cancelTextEditorEvent}
+      onTouchStart={cancelTextEditorEvent}
+      onClick={(event) => {
+        event.cancelBubble = true;
+        onPress();
+      }}
+      onTap={(event) => {
+        event.cancelBubble = true;
+        onPress();
+      }}
+    >
+      <Rect
+        width={width}
+        height={24}
+        fill={active ? "#2563EB" : "#F8FAFC"}
+        stroke={active ? "#2563EB" : "#E2E8F0"}
+        strokeWidth={1}
+        cornerRadius={5}
+      />
+      <Text
+        width={width}
+        height={24}
+        text={label}
+        align="center"
+        verticalAlign="middle"
+        fontFamily={fontFamily}
+        fontSize={12}
+        fontStyle={fontStyle}
+        fill={active ? "#FFFFFF" : "#0F172A"}
+        wrap="none"
+        ellipsis
+      />
+    </Group>
+  );
+}
+
+function cancelTextEditorEvent(
+  event: Konva.KonvaEventObject<MouseEvent | TouchEvent>,
+) {
+  event.cancelBubble = true;
+}
+
+function textFontWithSize(font: Font, nextSize: number): Font {
+  const previousSize = font.size ?? DEFAULT_TEXT_FONT_SIZE;
+  const lineHeight =
+    font.lineHeight && previousSize > 0
+      ? roundLayoutNumber(font.lineHeight * (nextSize / previousSize))
+      : font.lineHeight;
+
+  return {
+    ...font,
+    size: nextSize,
+    lineHeight,
+  };
+}
+
+function nextTextEditorFontFamily(currentFamily?: string | null) {
+  const currentIndex = TEXT_EDITOR_FONT_FAMILIES.findIndex(
+    (family) => family === currentFamily,
+  );
+  const nextIndex =
+    currentIndex >= 0 ? (currentIndex + 1) % TEXT_EDITOR_FONT_FAMILIES.length : 0;
+
+  return TEXT_EDITOR_FONT_FAMILIES[nextIndex];
+}
+
 function ComponentBounds({
   componentId,
   width,
@@ -709,7 +1013,7 @@ function childSelectionAtPoint(
       : null;
   }
 
-  if (element.type === "stack") {
+  if (element.type === "group") {
     return elementSelectionAtPoint(
       element.children,
       point,
@@ -971,7 +1275,7 @@ function updateElementNodeAtPath(
 function hasElementChildren(
   element: SlideElement,
 ): element is Extract<SlideElement, { children: SlideElement[] }> {
-  return element.type === "flex" || element.type === "grid" || element.type === "stack";
+  return element.type === "flex" || element.type === "grid" || element.type === "group";
 }
 
 function elementWithFrame(
@@ -1263,7 +1567,7 @@ function scaleElement(
         rowGap: scaleOptional(element.rowGap, scaleY),
         item: scaleElement(element.item, scaleX, scaleY),
       };
-    case "stack":
+    case "group":
       return {
         ...element,
         position: scalePosition(element.position, scaleX, scaleY) ?? element.position,

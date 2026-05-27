@@ -85,7 +85,7 @@ ELEMENT_TYPES = {
     "line",
     "list-view",
     "rectangle",
-    "stack",
+    "group",
     "table",
     "text",
     "text-list",
@@ -348,7 +348,7 @@ def _apply_element_value_from_schema(
             _apply_element_value_from_schema(child, value, schema)
         return
 
-    if element_type in {"flex", "grid", "stack"}:
+    if element_type in {"flex", "grid", "group"}:
         _apply_children_value_from_schema(element, value, schema)
         return
 

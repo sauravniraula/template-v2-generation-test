@@ -486,8 +486,8 @@ class GridView(BaseModel):
         return self
 
 
-class Stack(BaseModel):
-    type: Literal["stack"]
+class Group(BaseModel):
+    type: Literal["group"]
     fixed: bool
     position: Position
     size: Size
@@ -524,13 +524,13 @@ SlideElement: TypeAlias = Annotated[
         Grid,
         ListView,
         GridView,
-        Stack,
+        Group,
     ],
     Field(discriminator="type"),
 ]
 
 
-for _model in (Container, Flex, Grid, ListView, GridView, Stack):
+for _model in (Container, Flex, Grid, ListView, GridView, Group):
     _model.model_rebuild()
 
 
@@ -560,7 +560,7 @@ __all__ = [
     "Shadow",
     "Size",
     "SlideElement",
-    "Stack",
+    "Group",
     "Stroke",
     "Table",
     "TableCell",

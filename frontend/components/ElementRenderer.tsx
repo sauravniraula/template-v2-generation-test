@@ -134,9 +134,9 @@ export default function ElementRenderer(props: ElementRendererProps) {
           showMissingImageMarkers={showMissingImageMarkers}
         />
       );
-    case "stack":
+    case "group":
       return (
-        <StackElementView
+        <GroupElementView
           element={element}
           frame={elementFrame(element, mode, frame)}
           showMissingImageMarkers={showMissingImageMarkers}
@@ -707,12 +707,12 @@ function GridViewElementView({
   );
 }
 
-function StackElementView({
+function GroupElementView({
   element,
   frame,
   showMissingImageMarkers,
 }: {
-  element: Extract<SlideElement, { type: "stack" }>;
+  element: Extract<SlideElement, { type: "group" }>;
   frame: Frame;
   showMissingImageMarkers: boolean;
 }) {
@@ -720,7 +720,7 @@ function StackElementView({
     <Group x={frame.x} y={frame.y} rotation={element.rotation ?? 0}>
       {element.children.map((child, index) => (
         <ElementRenderer
-          key={`stack-child-${index}`}
+          key={`group-child-${index}`}
           element={child}
           mode="absolute"
           showMissingImageMarkers={showMissingImageMarkers}

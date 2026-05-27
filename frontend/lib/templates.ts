@@ -243,7 +243,7 @@ function nestedElementBounds(element: SlideElement): Bounds | null {
     return element.child ? elementBounds(element.child) : null;
   }
 
-  if (element.type === "flex" || element.type === "grid" || element.type === "stack") {
+  if (element.type === "flex" || element.type === "grid" || element.type === "group") {
     return elementsBounds(element.children);
   }
 
@@ -350,7 +350,7 @@ function translateElement(
     };
   }
 
-  if (element.type === "flex" || element.type === "grid" || element.type === "stack") {
+  if (element.type === "flex" || element.type === "grid" || element.type === "group") {
     return {
       ...element,
       children: element.children.map((child) =>
@@ -384,7 +384,7 @@ function normalizeElementImageSources(element: SlideElement): SlideElement {
     };
   }
 
-  if (element.type === "flex" || element.type === "grid" || element.type === "stack") {
+  if (element.type === "flex" || element.type === "grid" || element.type === "group") {
     return {
       ...element,
       children: element.children.map((child) => normalizeElementImageSources(child)),

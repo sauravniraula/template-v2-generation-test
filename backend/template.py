@@ -50,7 +50,7 @@ The user prompt contains one slide number and all shape objects from that slide.
 - Component `id` values must be concise lower_snake_case names.
 - Group only related shapes into the same component. Eg: `contact_info`, `product_list`, `timeline`, `title_description`, etc.
 - For related lists, cards, timelines, menus, grids, or repeated items, create one component for the full group.
-- Use `container`, `flex`, `grid`, and `stack` when they make positioning, resizing, or grouping clearer.
+- Use `container`, `flex`, `grid`, and `group` when they make positioning, resizing, or grouping clearer.
 - For repeated same-structure items, use `list-view` or `grid-view` with one representative `item` element and `count` rather than duplicating the same element many times.
 - Use `list-view` for repeated same-structure items in one row or column.
 - Use `grid-view` for repeated same-structure items arranged across multiple rows and columns.
@@ -62,7 +62,7 @@ The user prompt contains one slide number and all shape objects from that slide.
   - text/table cells: `minLength` and `maxLength`
   - text-list: `minItems`, `maxItems`, `minItemLength`, and `maxItemLength`
   - table: `minColumns`, `maxColumns`, `minRows`, and `maxRows`
-  - flex/grid/stack: `minChildren` and `maxChildren`
+  - flex/grid/group: `minChildren` and `maxChildren`
   - list-view/grid-view: `minCount` and `maxCount`
 
 # Output Rules

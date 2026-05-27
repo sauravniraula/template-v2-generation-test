@@ -308,8 +308,8 @@ export interface GridViewElement {
   minCount?: Nullable<number>;
 }
 
-export interface StackElement {
-  type: "stack";
+export interface GroupElement {
+  type: "group";
   fixed?: Nullable<boolean>;
   position: Position;
   size: Size;
@@ -335,4 +335,4 @@ export type SlideElement =
   | GridElement
   | ListViewElement
   | GridViewElement
-  | StackElement;
+  | GroupElement;

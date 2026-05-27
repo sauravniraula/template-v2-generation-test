@@ -78,7 +78,7 @@ const INITIAL_LAYOUTS: SlideLayout[] = [
                 borderRadius: { tl: 8, tr: 8, br: 8, bl: 8 },
                 padding: { top: 14, right: 18, bottom: 14, left: 18 },
                 child: {
-                  type: "stack",
+                  type: "group",
                   fixed: true,
                   position: { x: 18, y: 14 },
                   size: { width: 224, height: 44 },
@@ -135,7 +135,7 @@ const INITIAL_LAYOUTS: SlideLayout[] = [
                 borderRadius: { tl: 8, tr: 8, br: 8, bl: 8 },
                 padding: { top: 12, right: 14, bottom: 12, left: 14 },
                 child: {
-                  type: "stack",
+                  type: "group",
                   fixed: true,
                   position: { x: 14, y: 12 },
                   size: { width: 148, height: 48 },
@@ -165,7 +165,7 @@ const INITIAL_LAYOUTS: SlideLayout[] = [
       },
       {
         id: "hero_story",
-        descritpion: "Hero section using a grid for copy, media, and an overlaid trend stack.",
+        descritpion: "Hero section using a grid for copy, media, and an overlaid trend group.",
         position: { x: 64, y: 132 },
         size: { width: 640, height: 246 },
         elements: [
@@ -248,7 +248,7 @@ const INITIAL_LAYOUTS: SlideLayout[] = [
                 },
               },
               {
-                type: "stack",
+                type: "group",
                 fixed: false,
                 position: { x: 0, y: 0 },
                 size: { width: 310, height: 246 },
@@ -317,7 +317,7 @@ const INITIAL_LAYOUTS: SlideLayout[] = [
                 borderRadius: { tl: 8, tr: 8, br: 8, bl: 8 },
                 padding: { top: 16, right: 16, bottom: 16, left: 16 },
                 child: {
-                  type: "stack",
+                  type: "group",
                   fixed: false,
                   position: { x: 16, y: 16 },
                   size: { width: 204, height: 91 },
@@ -361,7 +361,7 @@ const INITIAL_LAYOUTS: SlideLayout[] = [
                 borderRadius: { tl: 8, tr: 8, br: 8, bl: 8 },
                 padding: { top: 16, right: 16, bottom: 16, left: 16 },
                 child: {
-                  type: "stack",
+                  type: "group",
                   fixed: false,
                   position: { x: 16, y: 16 },
                   size: { width: 204, height: 91 },
@@ -405,7 +405,7 @@ const INITIAL_LAYOUTS: SlideLayout[] = [
                 borderRadius: { tl: 8, tr: 8, br: 8, bl: 8 },
                 padding: { top: 16, right: 16, bottom: 16, left: 16 },
                 child: {
-                  type: "stack",
+                  type: "group",
                   fixed: false,
                   position: { x: 16, y: 16 },
                   size: { width: 204, height: 91 },
@@ -445,7 +445,7 @@ const INITIAL_LAYOUTS: SlideLayout[] = [
                 borderRadius: { tl: 8, tr: 8, br: 8, bl: 8 },
                 padding: { top: 16, right: 16, bottom: 16, left: 16 },
                 child: {
-                  type: "stack",
+                  type: "group",
                   fixed: false,
                   position: { x: 16, y: 16 },
                   size: { width: 204, height: 91 },
@@ -520,7 +520,7 @@ const INITIAL_LAYOUTS: SlideLayout[] = [
                     stroke: { color: "#E2E8F0", width: 1 },
                     borderRadius: { tl: 8, tr: 8, br: 8, bl: 8 },
                     child: {
-                      type: "stack",
+                      type: "group",
                       fixed: false,
                       position: { x: 10, y: 8 },
                       size: { width: 190, height: 36 },
@@ -618,7 +618,7 @@ const INITIAL_LAYOUTS: SlideLayout[] = [
                   borderRadius: { tl: 8, tr: 8, br: 8, bl: 8 },
                   padding: { top: 14, right: 14, bottom: 14, left: 14 },
                   child: {
-                    type: "stack",
+                    type: "group",
                     fixed: false,
                     position: { x: 14, y: 14 },
                     size: { width: 83, height: 83 },
@@ -659,7 +659,7 @@ const INITIAL_LAYOUTS: SlideLayout[] = [
                 borderRadius: { tl: 8, tr: 8, br: 8, bl: 8 },
                 padding: { top: 18, right: 18, bottom: 18, left: 18 },
                 child: {
-                  type: "stack",
+                  type: "group",
                   fixed: false,
                   position: { x: 18, y: 18 },
                   size: { width: 330, height: 212 },

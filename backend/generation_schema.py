@@ -9,11 +9,11 @@ from elements import (
     Chart,
     Container,
     Flex,
+    Group,
     Grid,
     GridView,
     Image,
     ListView,
-    Stack,
     Table,
     Text,
     TextList,
@@ -133,7 +133,7 @@ def _collect_element_fields(
             )
         return
 
-    if isinstance(element, (Flex, Grid, Stack)):
+    if isinstance(element, (Flex, Grid, Group)):
         for index, child in enumerate(element.children):
             _collect_element_fields(
                 element=child,
@@ -213,7 +213,7 @@ def _schema_for_repeated_item(element: Any) -> JsonSchema | None:
     if isinstance(element, Container):
         return _schema_for_repeated_item(element.child) if element.child else None
 
-    if isinstance(element, (Flex, Grid, Stack)):
+    if isinstance(element, (Flex, Grid, Group)):
         properties: dict[str, JsonSchema] = {}
         required: list[str] = []
 
