@@ -2,7 +2,7 @@ import type { Nullable, Position, Size, SlideElement } from "./elements";
 
 export interface SlideComponent {
   id: string;
-  descritpion: string;
+  description: string;
   position?: Nullable<Position>;
   size?: Nullable<Size>;
   elements: SlideElement[];

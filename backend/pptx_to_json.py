@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import math
 import mimetypes
+import os
 import posixpath
 import re
 import zipfile
@@ -97,6 +98,9 @@ def convert_pptx_to_json(
     converter = PPTXToJSON(
         pptx_path=pptx_path,
         assets_dir=assets_dir,
+        asset_reference_base=(
+            Path(output_path).parent if output_path is not None else None
+        ),
         target_width=target_width,
     )
     try:
@@ -118,6 +122,7 @@ class PPTXToJSON:
         pptx_path: str | Path,
         *,
         assets_dir: str | Path | None = None,
+        asset_reference_base: str | Path | None = None,
         target_width: float = DEFAULT_TARGET_WIDTH,
     ) -> None:
         self.pptx_path = Path(pptx_path)
@@ -129,6 +134,11 @@ class PPTXToJSON:
             if assets_dir is not None
             else self.pptx_path.with_suffix("").parent
             / f"{self.pptx_path.stem}_assets"
+        )
+        self.asset_reference_base = (
+            Path(asset_reference_base)
+            if asset_reference_base is not None
+            else Path.cwd()
         )
         self.target_width = target_width
         self.archive = zipfile.ZipFile(self.pptx_path, "r")
@@ -824,9 +834,20 @@ class PPTXToJSON:
         if not asset_path.exists() or asset_path.read_bytes() != data:
             asset_path.write_bytes(data)
 
-        url = asset_path.resolve().as_uri()
-        self.asset_cache[archive_path] = url
-        return url
+        asset_reference = self._asset_reference(asset_path)
+        self.asset_cache[archive_path] = asset_reference
+        return asset_reference
+
+    def _asset_reference(self, asset_path: Path) -> str:
+        try:
+            reference = os.path.relpath(
+                asset_path.resolve(strict=False),
+                self.asset_reference_base.resolve(strict=False),
+            )
+        except ValueError:
+            reference = str(asset_path)
+
+        return Path(reference).as_posix()
 
     def _extract_fill(self, element: ET.Element | None) -> dict[str, Any] | None:
         if element is None:
